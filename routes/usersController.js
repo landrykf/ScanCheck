@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const jwtUtils =require('../utils/jwt.utils')
+const jwtUtils = require('../utils/jwt.utils')
 const models = require ('../models');
 const asyncLib = require('async');
 
@@ -10,6 +10,7 @@ const PASSWORD_REGEX = /^[a-zA-Z]\w{3,14}$/
 
 //Routes
 module.exports = {
+// ------------------------------- register -----------------------------
     register:(req, res)=>{
         
         //Params
@@ -38,6 +39,9 @@ module.exports = {
             return res.status(400).json({'error': 'mot de passe unvalide(le premier caractère du mot de passe doit être une lettre, il doit comporter entre 4 et 15 caractère sans caractère spéciaux sauf "_") '})
         }
 
+
+
+
         //On vérifie si l'utilisateur existe déja dans la bdd
         models.User.findOne({
             attributes: ['email'],
@@ -53,12 +57,12 @@ module.exports = {
                         bio : bio,
                         isAdmin: 0
                     })
-                    .then(function(newUser) {
+                    .then((newUser)=> {
                         return res.status(201).json({
                             'userId': newUser.id
                         })
                     })
-                    .catch(function(err) {
+                    .catch((err)=> {
                         return res.status(500).json({'error':'impossible d\'ajouter l\'utilisateur'})
                     })
                 });
@@ -71,7 +75,7 @@ module.exports = {
             return res.status(500).json({'error': 'impossible de vérifier l\'utilisateur'})
         });
     },
-
+//-----------------------------LOGIN---------------------------------------
     login:(req, res) =>{
         //Paramètres
         let email = req.body.email;
@@ -108,5 +112,63 @@ module.exports = {
             return res.status(500).json({'error':'Impossible de vérifier l\'utilisateur'})
         })
 
+    },
+
+    //permet de recupérer le profil et le modifier
+
+    getUserProfile : (req,res)=> {
+        //recuperer entète autorisation 
+        
+        let headerAuth = req.headers['authorization'];
+        let userId = jwtUtils.getUserId(headerAuth);
+
+        if (userId < 0)
+            // console.log(userId);
+            return res.status(400).json({'error':'token invalide (wrong)'});
+
+        models.User.findOne({
+            attributes : ['id', 'email', 'username', 'bio' ],
+            where: { id: userId }
+        }).then((user)=> {
+            if (user) {
+                res.status(201).json({user})
+            }else{
+                res.status(404).json({'error' : 'utilisateur non trouvé'})
+            }
+        }).catch((err)=>{
+            res.status(500).json({ 'error': 'cannot fetch user' })
+        });
+    },
+    updateUserProfile : (req, res)=>{
+        let headerAuth = req.headers['authorization'];
+        let userId = jwtUtils.getUserId(headerAuth);
+
+        //Paramètres
+        let bio = req.body.bio;
+
+        models.User.findOne({
+            attributes : ['id', 'bio'],
+            where: { id : userId }
+        })
+        .then((userFound)=>{
+
+            if(userFound) {
+                userFound.update({
+                    bio:( bio ? bio :userFound.bio)
+                });
+                if (userFound) {
+                    res.status(201).json(userFound);
+                }else{
+                    res.status(500).json({'error': 'impossible de modifier l\'utilisateur'})
+                }
+            }else{
+                res.status(500).json({'error':'utilisateur non trouvé'})
+            } 
+        })
+        .catch((err)=>{
+            return res.status(500).json({'error': 'unable to verify user'});
+        });
     }
+
+
 }
