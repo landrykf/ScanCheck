@@ -36,7 +36,7 @@ module.exports = {
         }
 
         if (!PASSWORD_REGEX.test(password)){
-            return res.status(400).json({'error': 'mot de passe unvalide(le premier caractère du mot de passe doit être une lettre, il doit comporter entre 4 et 15 caractère sans caractère spéciaux sauf "_") '})
+            return res.status(400).json({'error': 'mot de passe invalide(le premier caractère du mot de passe doit être une lettre, il doit comporter entre 4 et 15 caractère sans caractère spéciaux sauf "_") '})
         }
 
 
