@@ -1,6 +1,7 @@
 const express = require('express');
 const usersController = require('./routes/usersController');
-const messagesController = require('./routes/messagesController')
+const messagesController = require('./routes/messagesController');
+const likesController = require('./routes/likesController');
 
 //Router
 
@@ -18,7 +19,9 @@ apiRouter.route('/users/me/').put(usersController.updateUserProfile);
 apiRouter.route('/messages/new/').post(messagesController.createdMessage);
 apiRouter.route('/messages/').get(messagesController.listMessages);
 
-
+//Likes routes
+apiRouter.route('/messages/:messageId/vote/like').post(likesController.likePost);
+apiRouter.route('/messages/:messageId/vote/dislike').post(likesController.dislikePost)
 
 return apiRouter;
 })();
