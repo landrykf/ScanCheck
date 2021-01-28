@@ -12,7 +12,7 @@ const RegisterForm = () => {
         event.preventDefault();
         let emailError = document.querySelector(".email.error");
         let passwordError = document.querySelector(".password.error");
-        let usernameError = document.querySelector(".username.password");
+        let usernameError = document.querySelector(".username.error");
 
         axios({
             method: "post",
@@ -25,12 +25,24 @@ const RegisterForm = () => {
             }
 
         })
+        .then((res) => {
+            console.log(res)
+            window.location = '/';
+
+        })
+        .catch((err)=>{
+            console.log(err.response)
+
+            emailError.innerHTML = err.response.data.error;
+            passwordError.innerHTML = err.response.data.error;
+            usernameError.innerHTML = err.response.data.error;
+        })
 
     }
 
     return(
         <div>
-          <form action id="form-register">
+          <form action= "" onSubmit={handleRegister}  id="form-register">
             <label htmlFor="email">Email</label>
             <br/>
             <input 
@@ -41,7 +53,6 @@ const RegisterForm = () => {
                 value={email}
             />
             <div className="email error"></div>
-          </form>
 
           <label htmlFor="username">Nom d'utilisateur</label>
           <br/>
@@ -64,7 +75,13 @@ const RegisterForm = () => {
             value={password}
           />
           <div className="password error"></div>
-        </div>
+          <br/>
+
+          <input type="submit" value="S'inscrire"/>
+
+          </form>
+       </div>
+
     )
 }
 

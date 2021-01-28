@@ -25,7 +25,7 @@ const LoginForm = () => {
         .then((res)=> {
             console.log(res);
 
-                window.location = '/';
+            window.location = '/';
             
         })
         .catch((err)=>{
