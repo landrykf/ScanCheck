@@ -15,7 +15,7 @@ const Log = () => {
             setRegisterModal(false);
             setLoginModal(true);
         }
-        console.log(event.target)
+        // console.log(event.target)
     }
 
     return(
@@ -23,12 +23,12 @@ const Log = () => {
             <div className="form-container">
                 <ul>
                     <li onClick={handleModal} id="register">S'inscrire</li>
-                    <li onClick={handleModal}id="login">Se connecter</li>
+                    <li onClick={handleModal} id="login">Se connecter</li>
                 </ul>
                 {registeModal && <RegisterForm />}
                 {loginModal && <LoginForm />}
             </div>
-        </div>
+        </div> 
     )
 }
 
