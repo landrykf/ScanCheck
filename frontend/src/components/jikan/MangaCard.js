@@ -3,7 +3,7 @@ import React from 'react'
 function MangaCard({manga}) {
     return (
         <article className="manga-card">
-            <a href={manga.url} target="_blank" rel="noreferrer">
+            <a href='#' rel="noreferrer">
                 <figure>
                     <img
                          src = {manga.image_url} 

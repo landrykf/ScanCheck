@@ -22,7 +22,7 @@ const Home = () => {
     }
 
     const FetchManga = async (query) => {
-        const searchReq = await fetch(`https://api.jikan.moe/v3/search/manga?q=${query}&order_by=title&sort=asc&limit=10`)
+        const searchReq = await fetch(`https://api.jikan.moe/v3/search/manga?q=${query}&order_by=title&sort=asc&limit=20`)
             .then(res => res.json());
 
         SetMangaList(searchReq.results)

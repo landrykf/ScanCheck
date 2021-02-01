@@ -12,7 +12,7 @@ header {
 }
 
 header h1 {
-  color: #AAA;
+  color: #fea735;
   font-size: 30px;
   font-weight: 400;
   text-align: center;
@@ -38,7 +38,7 @@ header h1 {
 }
 
 .content-wrap aside nav h3 {
-  color: #313131;
+  color: #fea735;
   font-size: 24px;
   margin-bottom: 16px;
 }

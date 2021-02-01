@@ -27,7 +27,7 @@ const LoginForm = () => {
             localStorage.setItem('token', res.data.token);
             let header1=axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
             console.log(header1);
-            window.location = '/';
+            // window.location = '/'
             
         })
         .catch((err)=>{

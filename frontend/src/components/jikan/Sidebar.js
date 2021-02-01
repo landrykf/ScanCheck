@@ -9,8 +9,7 @@ function Sidebar({ topManga }) {
                     {topManga.map(manga => (
 
                     <a 
-                        href={manga.url} 
-                        target="_blank"
+                        href='#'
                         key = {manga.mal_id}
                         rel="noreferrer">
                         
