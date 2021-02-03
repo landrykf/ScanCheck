@@ -2,6 +2,7 @@ import React from 'react';
 import {useContext} from 'react'
 import Log from '../components/Log'
 import {UidContext} from '../components/AppContext';
+import Navbar from '../components/Navbar';
 
 
 const Profil = () => {
@@ -9,7 +10,11 @@ const Profil = () => {
     return(
         <div className='profil-page'>
             {uid? (
-                <h2>UPDATE PAGE</h2>
+                <div>
+                    <h2>UPDATE PAGE</h2>
+                     <Navbar /> 
+                </div>
+                
             ): (
 
             <div className="log-container">
