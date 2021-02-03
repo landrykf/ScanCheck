@@ -114,6 +114,7 @@ module.exports = {
 
     },
 
+
     //permet de recupérer le profil et le modifier
 
     getUserProfile : (req,res)=> {
