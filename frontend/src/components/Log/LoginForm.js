@@ -26,7 +26,7 @@ const LoginForm = () => {
         .then((res)=> {
             console.log(res);
             localStorage.setItem('token', res.data.token);
-            let header1=axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
             window.location = `/profil`
             
         })
