@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+  
 
 const LoginForm = () => {
     let [email, setEmail] = useState('');
@@ -26,8 +27,8 @@ const LoginForm = () => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
             let header1=axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
-            console.log(header1);
-            // window.location = '/'
+            // console.log(header1);
+            window.location = `/profil`
             
         })
         .catch((err)=>{

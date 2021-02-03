@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
-const Log = () => {
-    const [registeModal, setRegisterModal] = useState(true); //hooks
-    const [loginModal, setLoginModal] = useState(false);
+const Log = (props) => {
+    const [registeModal, setRegisterModal] = useState(props.signup); //hooks
+    const [loginModal, setLoginModal] = useState(props.signin);
 
 
     let handleModal = (event)=>{

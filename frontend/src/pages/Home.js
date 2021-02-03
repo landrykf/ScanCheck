@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import Header from "../components/jikan/Header";
 import Sidebar from "../components/jikan/Sidebar";
-import HomeContent from '../components/jikan/HomeContent'
+import HomeContent from '../components/jikan/HomeContent';
 const Home = () => {
     const [mangaList, SetMangaList] = useState([]);
     const [topManga, SetTopManga] = useState([]);

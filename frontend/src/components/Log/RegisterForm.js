@@ -6,7 +6,7 @@ const RegisterForm = () => {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     let [username, setUsername]= useState('');
-    
+    let [controlPassword, setControlPassord] = useState('');
 
     let handleRegister=(event)=>{
         event.preventDefault();
