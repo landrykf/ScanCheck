@@ -146,16 +146,22 @@ module.exports = {
 
         //Paramètres
         let bio = req.body.bio;
+        let username = req.body.username;
+        let email = req.body.email;
+        let password = req.body.password;
 
         models.User.findOne({
-            attributes : ['id', 'bio'],
+            attributes : ['id', 'bio','username','email','password'],
             where: { id : userId }
         })
         .then((userFound)=>{
 
             if(userFound) {
                 userFound.update({
-                    bio:( bio ? bio :userFound.bio)
+                    bio:( bio ? bio :userFound.bio),
+                    username: (username ? username :userFound.username),
+                    email : (email ? email :userFound.email ),
+                    password : (password? password: userFound.password)
                 });
                 if (userFound) {
                     res.status(201).json(userFound);
