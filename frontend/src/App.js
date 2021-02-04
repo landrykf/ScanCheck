@@ -3,11 +3,13 @@ import {useEffect, useState} from "react"
 import Routes from "./components/routes";
 import {UidContext} from "./components/AppContext"
 import axios from "axios"
-
+import { useDispatch } from "react-redux"
+import { getUser } from './actions/user.actions';
 
 function App() {
   const [uid, setUid] = useState(null);
   const token = localStorage.getItem('token');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async() => {
@@ -21,7 +23,7 @@ function App() {
 
       })
       .then((res) =>{
-        console.log(res)
+        // console.log(res)
         setUid(res.data)
       })
       .catch((err) =>{
@@ -29,8 +31,17 @@ function App() {
       })
     };
     fetchToken();
+
+    try {
+      
+      dispatch(getUser())      
+
+    } catch (err) {
+      console.log(err)
+    }
+
  
-  }, [])
+  }, []);
 
 
 

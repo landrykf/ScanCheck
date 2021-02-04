@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { UidContext } from "./AppContext";
 import Logout from "./Log/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import {useSelector} from "react-redux";
 
 // import {
 //   faCheckSquare,
@@ -14,8 +14,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar() {
   const uid = useContext(UidContext);
-
+  const userData = useSelector((state)=> state.userReducer);
+  console.log(uid)
+  
   return (
+
+
     <div className="nav-container">
       <div className="logo">
         <NavLink exact to="/">
@@ -27,7 +31,7 @@ function Navbar() {
         <ul>
           <li className="welcome">
             <NavLink exact to="/">
-              <h5>Bienvenu "valeur dynamique"</h5>
+              <h5>Bienvenu {console.log(userData.user)}{uid.user.username}</h5>
                 <Logout/>
             </NavLink>
           </li>
@@ -42,6 +46,7 @@ function Navbar() {
         </ul>
       )}
     </div>
+
   );
 }
 

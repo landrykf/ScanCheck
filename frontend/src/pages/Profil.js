@@ -8,7 +8,8 @@ import Navbar from '../components/Navbar';
 const Profil = () => {
     const uid = useContext(UidContext)
     return(
-        <div className='profil-page'>
+        
+        <div className='profil-page' >
             {uid? (
                 <div>
                     <h2>UPDATE PAGE</h2>
