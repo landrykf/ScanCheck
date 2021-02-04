@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-import "./styles/scss/main.css";
+// import "./styles/main.scss";
 import "font-awesome/css/font-awesome.min.css";
-import "./styles/scss/index.scss"
+import "./styles/index.scss"
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";

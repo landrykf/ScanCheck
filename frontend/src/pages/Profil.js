@@ -13,7 +13,7 @@ const Profil = () => {
             {uid? (
                 <div>
                      <Navbar /> 
-                    <h2>UPDATE PAGE</h2>
+                    {/* <h2>UPDATE PAGE</h2> */}
                 </div>
                 
             ): (
