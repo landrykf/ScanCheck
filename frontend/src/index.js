@@ -4,6 +4,7 @@ import App from "./App";
 
 import "./styles/scss/main.css";
 import "font-awesome/css/font-awesome.min.css";
+import "./styles/scss/index.scss"
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";

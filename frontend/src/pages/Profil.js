@@ -12,8 +12,8 @@ const Profil = () => {
         <div className='profil-page' >
             {uid? (
                 <div>
-                    <h2>UPDATE PAGE</h2>
                      <Navbar /> 
+                    <h2>UPDATE PAGE</h2>
                 </div>
                 
             ): (

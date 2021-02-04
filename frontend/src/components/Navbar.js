@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { UidContext } from "./AppContext";
 import Logout from "./Log/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 // import {
 //   faCheckSquare,
@@ -14,12 +14,10 @@ import {useSelector} from "react-redux";
 
 function Navbar() {
   const uid = useContext(UidContext);
-  const userData = useSelector((state)=> state.userReducer);
-  console.log(uid)
-  
+  const userData = useSelector((state) => state.userReducer);
+  // console.log(uid);
+
   return (
-
-
     <div className="nav-container">
       <div className="logo">
         <NavLink exact to="/">
@@ -28,14 +26,35 @@ function Navbar() {
         </NavLink>
       </div>
       {uid ? (
-        <ul>
-          <li className="welcome">
-            <NavLink exact to="/">
-              <h5>Bienvenu {console.log(userData.user)}{uid.user.username}</h5>
-                <Logout/>
-            </NavLink>
-          </li>
-        </ul>
+        <div>
+          <ul>
+            <li className="welcome">
+              <NavLink exact to="/">
+                <h5>
+                  Bienvenu 
+                  {uid.user.username}
+                </h5>
+                <Logout />
+              </NavLink>
+            </li>
+          </ul>
+          <div className="icons">
+            <div className="icons-bis">
+              <NavLink to='/profil' exact activeClassName="active-icon-nav">
+                <span><FontAwesomeIcon icon={"user-circle"} /> profil</span>
+              </NavLink>
+              <br/>
+              <NavLink to='/account' exact activeClassName="active-icon-nav">
+                <span><FontAwesomeIcon icon={"user-cog"} /> reglages</span>
+              </NavLink>
+              <br/>
+              <NavLink to='/explore' exact activeClassName="active-icon-nav">
+                <span><FontAwesomeIcon icon={"compass"} /> explorer</span>
+              </NavLink>
+
+            </div>
+          </div>
+        </div>
       ) : (
         <ul>
           <NavLink exact to="/profil">
@@ -46,7 +65,6 @@ function Navbar() {
         </ul>
       )}
     </div>
-
   );
 }
 
