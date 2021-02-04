@@ -47,7 +47,7 @@ function Navbar() {
               </span>
             </NavLink>
 
-            <h5>{" " + uid.user.username}</h5>
+            <h5>{" " + uid?.user?.username}</h5>
 
             <ul>
               <li className="welcome">
