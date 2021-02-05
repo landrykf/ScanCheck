@@ -46,6 +46,12 @@ function Navbar() {
                 <FontAwesomeIcon icon={"compass"} /> explorer
               </span>
             </NavLink>
+            <br />
+            <NavLink to="/watchlist" exact activeClassName="active-icon-nav">
+              <span>
+                <FontAwesomeIcon icon={"user-cog"} /> watchlist
+              </span>
+            </NavLink>
 
             <h5>{" " + uid?.user?.username}</h5>
 
