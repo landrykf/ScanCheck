@@ -161,7 +161,7 @@ module.exports = {
                     bio:( bio ? bio :userFound.bio),
                     username: (username ? username :userFound.username),
                     email : (email ? email :userFound.email ),
-                    password : (password? password: userFound.password)
+                    password : (password ? password: userFound.password)
                 });
                 if (userFound) {
                     res.status(201).json(userFound);

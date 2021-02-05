@@ -9,7 +9,7 @@ function UpdateProfil() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
-  const [updateForm, setUpdateForm] = useState(false);
+  const [updateForm, setUpdateForm] = useState(true);
 
   const userData = useSelector((state) => state.userReducer);
 //   console.log(userData);
