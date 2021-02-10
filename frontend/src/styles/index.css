@@ -217,8 +217,61 @@ header h1 {
   background-repeat: no-repeat;
 }
 
+.watchlist-page .manga-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 99%;
+}
+
+.watchlist-page .manga-list .manga-card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33.333%;
+          flex: 1 1 33.333%;
+  max-width: 18.333%;
+  padding: 16px 8px;
+}
+
+.watchlist-page .manga-list .manga-card a {
+  text-decoration: none;
+}
+
+.watchlist-page .manga-list .manga-card figure {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.watchlist-page .manga-list .manga-card figure img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 16px;
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.watchlist-page .manga-list .manga-card h3 {
+  color: #313131;
+}
+
+.watchlist-page .manga-list .manga-card:hover figure img {
+  -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .nav-container {
-  position: relative;
+  position: fixed;
 }
 
 .nav-container a {
@@ -236,6 +289,7 @@ header h1 {
   position: fixed;
   z-index: 10;
   width: 200px;
+  top: 183px;
 }
 
 @media screen and (max-width: 590px) {
