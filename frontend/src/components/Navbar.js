@@ -6,6 +6,11 @@ import Logout from "./Log/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 
+//parti 2
+
+import {Add} from './Mangalist/Add'
+
+
 // import {
 //   faCheckSquare,
 //   faCoffee,
@@ -19,13 +24,15 @@ function Navbar() {
 
   return (
     <div className="nav-container">
-      <div>
         <div className="logo">
           <NavLink exact to="/">
             <img src="./img/logo.png" alt="logo" width="100" />
             <span>Scancheck</span>
           </NavLink>
         </div>
+
+        {/* <Add/> */}
+
 
         <div className="icons">
           <div className="icons-bis">
@@ -64,7 +71,7 @@ function Navbar() {
             </ul>
           </div>
         </div>
-      </div>
+
     </div>
   );
 }

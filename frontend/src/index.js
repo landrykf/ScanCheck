@@ -15,6 +15,11 @@ import RootReducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 
+
+//part 2
+import reportWebVitals from './reportWebVitals';
+
+
 const store = createStore(
   RootReducer,
   composeWithDevTools(applyMiddleware(thunk,logger))
@@ -29,3 +34,8 @@ ReactDOM.render(
 
   document.getElementById("root")
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

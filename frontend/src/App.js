@@ -6,6 +6,10 @@ import axios from "axios"
 import { useDispatch } from "react-redux"
 import { getUser } from './actions/user.actions';
 
+// part 2
+import './styles/App.css'
+import './lib/font-awesome/css/all.min.css'
+
 function App() {
   const [uid, setUid] = useState(null);
   const token = localStorage.getItem('token');

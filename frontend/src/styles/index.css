@@ -271,7 +271,7 @@ header h1 {
 }
 
 .nav-container {
-  position: relative;
+  position: fixed;
 }
 
 .nav-container a {
