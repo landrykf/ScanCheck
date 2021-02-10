@@ -10,6 +10,7 @@ const initialState = {
   readed: localStorage.getItem("readed")
     ? JSON.parse(localStorage.getItem("readed"))
     : [],
+  showDetail: [],
 };
 
 //create contect
@@ -30,6 +31,10 @@ export const GlobalProvider = (props) => {
   const addMangaToReadList = (manga) => {
     dispatch({ type: "ADD_MANGA_TO_READLIST", payload: manga });
   };
+
+  const showMangaDetail = (manga) => {
+    dispatch ({type: "SHOW_MANGA_DETAIL", payload: manga})
+  }
 
   const removeMangaFromReadList = (id) => {
     dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id });
@@ -56,11 +61,13 @@ export const GlobalProvider = (props) => {
       value={{
         readlist: state.readlist,
         readed: state.readed,
+        showDetail: state.showDetail,
         addMangaToReadList,
         removeMangaFromReadList,
         addMangaToReaded,
         moveToReadlist,
         removeFromReaded,
+        showMangaDetail,
       }}
     >
       {props.children}

@@ -4,7 +4,7 @@ import { MangaCard } from "./MangaCard";
 
 export const Readed = () => {
   const { readed } = useContext(GlobalContext);
-  console.log(readed);
+  // console.log(readed);
 
   return (
     <div className="movie-page">

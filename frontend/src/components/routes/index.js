@@ -9,6 +9,7 @@ import {Add} from '../Mangalist/Add';
 //part2
 import {GlobalProvider} from '../../context/GlobalState'
 import Explorer from '../../pages/Explorer'
+import MoreInfo from '../../pages/MoreInfo'
 
 const index = () => {
     return (
@@ -25,6 +26,7 @@ const index = () => {
                 <Route path="/watchlist" exact component={Watchlist}/>
                 <Route path="/add" exact component={Add}/>
                 <Route path="/explorer" exact component={Explorer}/>
+                <Route path="/detail" exact component = {MoreInfo} />
 
                 <Redirect to="/" />
             </Switch>

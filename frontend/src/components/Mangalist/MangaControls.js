@@ -7,6 +7,7 @@ export const MangaControls = ({ manga, type }) => {
     addMangaToReaded,
     moveToReadlist,
     removeFromReaded,
+    showMangaDetail,
   } = useContext(GlobalContext);
 
   return (
@@ -22,6 +23,10 @@ export const MangaControls = ({ manga, type }) => {
             onClick={() => removeMangaFromReadList(manga.mal_id)}
           >
             <i className="fas fa-times"></i>
+          </button>
+
+          <button className="ctrl-btn" onClick={() => showMangaDetail(manga)}>
+            <i className="fas fa-eye"></i>
           </button>
         </>
       )}

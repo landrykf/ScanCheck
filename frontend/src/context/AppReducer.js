@@ -7,6 +7,14 @@ export default (state, action) => {
         readlist: [action.payload, ...state.readlist],
       };
 
+      case "SHOW_MANGA_DETAIL":
+        console.log(action.payload)
+        return{
+          ...state,
+          // showDetail : [action.payload, ...state.showDetail]
+          showDetail : action.payload,
+        }
+
     case "REMOVE_MOVIE_FROM_WATCHLIST":
       // console.log(action);
       return {

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
+import Detail from "../Details/Detail";
 import { MangaCard } from "./MangaCard";
 export const Readlist = () => {
   const { readlist } = useContext(GlobalContext);
-
+  const {showDetail} = useContext(GlobalContext);
+  // console.log({showDetail});
   return (
     <div className="movie-page">
       <div className="container">
@@ -23,6 +25,23 @@ export const Readlist = () => {
           <h2 className="no-movies"> Votre Mangathèque est vide </h2>
         )}
       </div>
+      <div>
+        {console.log(showDetail)}
+        {/* {showDetail.length > 0 ? (
+          <div>
+            {(<div>
+              {showDetail.map((manga) => (
+                <Detail manga ={manga} type="showDetail" />
+              ))}
+            </div>)} 
+          </div>
+        ):(<h1>pas de carte</h1>)} */}
+
+        <div>
+          <Detail manga = {showDetail} type="showDetail" />
+        </div>
+      </div>
+
     </div>
   );
 };

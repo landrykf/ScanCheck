@@ -39,6 +39,7 @@ const Watchlist = () => {
         {/* <Header /> */}
         <Readlist />
         <Readed />
+        
 
         {/* <HomeContent
           HandleSearch={HandleSearch}
