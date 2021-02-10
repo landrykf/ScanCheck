@@ -402,4 +402,11 @@ header h1 {
     left: -8px;
   }
 }
+
+aside .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 188px;
+}
 /*# sourceMappingURL=index.css.map */

@@ -48,7 +48,7 @@ function Navbar() {
               </span>
             </NavLink>
             <br />
-            <NavLink to="/explore" exact activeClassName="active-icon-nav">
+            <NavLink to="/explorer" exact activeClassName="active-icon-nav">
               <span>
                 <FontAwesomeIcon icon={"compass"} /> explorer
               </span>
