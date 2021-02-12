@@ -266,6 +266,7 @@ header .nav-links li:last-child {
   padding: 3px;
   opacity: 0;
   transition: all 0.3s ease;
+  z-index: 20;
 }
 
 .movie-card:hover .inner-card-controls {

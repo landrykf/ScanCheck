@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import Detail from "../Details/Detail";
 import { MangaCard } from "./MangaCard";
+
 export const Readlist = () => {
   const { readlist } = useContext(GlobalContext);
-  const {showDetail} = useContext(GlobalContext);
+  const { showDetail } = useContext(GlobalContext);
+  //affichage popup
+  const [detailPopup, setDetailPopup] = useState(false);
+
+
   // console.log({showDetail});
   return (
     <div className="movie-page">
@@ -37,11 +42,10 @@ export const Readlist = () => {
           </div>
         ):(<h1>pas de carte</h1>)} */}
 
-        <div>
-          <Detail manga = {showDetail} type="showDetail" />
-        </div>
+        {/* <div>
+          <Detail detailPopup={detailPopup} manga={showDetail} type="showDetail" />
+        </div> */}
       </div>
-
     </div>
   );
 };

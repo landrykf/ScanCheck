@@ -1,17 +1,22 @@
 import React from "react";
 
+function DetailCard({ manga }) {
+  console.log(manga);
 
-
-function DetailCard({manga}) {
-    console.log(manga)
   return (
-    <div>
-        <p>{manga.synopsis}</p>
-      {manga.image_url ? (
+    <div className="modal">
+      <span className="cross">&#10005;</span>
+
+      <div className="detail-banner">
         <img src={`${manga.image_url}`} alt={`${manga.title} poster`} />
-      ) : (
-        <div className="filler-poster"></div>
-      )}
+      </div>
+      <div className="info-zone">
+        <h3>{manga.title}</h3>
+        <h4>{manga.score}/10</h4>
+      </div>
+      <div className="detail-text">
+        <p>{manga.synopsis}</p>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalState";
+import Detail from "../Details/Detail";
 
-export const MangaControls = ({ manga, type }) => {
+export const MangaControls = ({manga, type }) => {
+
+
+  // const [detailPopup, setDetailPopup] = useState(false);
+
+
   const {
     removeMangaFromReadList,
     addMangaToReaded,
@@ -14,7 +20,7 @@ export const MangaControls = ({ manga, type }) => {
     <div className="inner-card-controls">
       {type === "readlist" && (
         <>
-          <button className="ctrl-btn" onClick={() => addMangaToReaded(manga)}>
+          <button className="ctrl-btn" onClick={() => addMangaToReaded(manga) }>
             <i className="fas fa-book-open"></i>
           </button>
 
@@ -25,9 +31,6 @@ export const MangaControls = ({ manga, type }) => {
             <i className="fas fa-times"></i>
           </button>
 
-          <button className="ctrl-btn" onClick={() => showMangaDetail(manga)}>
-            <i className="fas fa-eye"></i>
-          </button>
         </>
       )}
 
@@ -45,6 +48,15 @@ export const MangaControls = ({ manga, type }) => {
           </button>
         </>
       )}
+
+      {/* {detailPopup && 
+      <div className="popup-profil-container">
+        <div className="modal">
+          <h3>bannière</h3>
+        <Detail/>
+        </div>
+      </div> } */}
+      
     </div>
   );
 };
