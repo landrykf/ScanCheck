@@ -5,8 +5,9 @@ const JWT_SIGN_SECRET = 'tokensecret';
 
 module.exports = {
     generateTokenForUser: (userData) => {
+        
         return jwt.sign({
-            userId: userData.id,
+            userId: userData._id,
             isAdmin: userData.isAdmin
         },
         JWT_SIGN_SECRET,

@@ -75,7 +75,7 @@ module.exports = {
     //Paramètres
     let email = req.body.email;
     let password = req.body.password;
-    // console.log(email);
+    console.log(email);
 
     if (email == null || password == null) {
       return res.status(400).json({ error: "Paramètres manquant" });
@@ -87,10 +87,10 @@ module.exports = {
     //  console.log(foundUser);
 
     UserModel.findOne({
-      email: email,
+      email: email, 
     })
       .then((userFound) => {
-        //   console.log(userFound);
+        //   console.log(userFound); 
         if (userFound) {
           bcrypt.compare(
             password,

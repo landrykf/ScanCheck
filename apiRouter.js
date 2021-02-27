@@ -12,13 +12,15 @@ const upload = multer();
 
 exports.router = (function () {
   let apiRouter = express.Router();
-
+ 
   //Auth
   apiRouter.route("/user/register").post(authController.signUp);
   apiRouter.route("/user/login").post(authController.signIn);
   //User
   apiRouter.route("/user").get(userController.getAllUser);
   apiRouter.route("/user/:id").get(userController.userInfo);
+  apiRouter.route("/user/me").get(userController.userInfo);
+
   apiRouter.route("/user/:id").put(userController.updateUser);
   apiRouter.route("/user/:id").delete(userController.deleteUser);
 
