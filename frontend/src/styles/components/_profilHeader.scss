@@ -1,0 +1,21 @@
+.avatar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        width: 25%;
+        align-self: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        label, input {
+            width: 12%;
+            align-self: center;
+        }
+    }
+}

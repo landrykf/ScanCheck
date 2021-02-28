@@ -56,12 +56,12 @@ function App() {
   return (
     <div className="App">
       <UidContext.Provider value={uid}>
-      <header className="App-header">
+      
 
-        <h1> Ici mon app react </h1>
+        
         <Routes />
 
-      </header>
+      
       </UidContext.Provider>
 
     </div>

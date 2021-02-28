@@ -25,7 +25,7 @@ module.exports = {
       req.file.stream,
 
       fs.createWriteStream(
-        `${__dirname}/../client/public/uploads/profil/${fileName}`
+        `${__dirname}/../frontend/public/uploads/profil/${fileName}`
       )
     );
 

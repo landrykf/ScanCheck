@@ -25,7 +25,7 @@ function Navbar() {
   return (
     <div className="nav-container">
         <div className="logo">
-          <NavLink exact to="/">
+          <NavLink to="/" exact activeClassName="active-icon-nav">
             <img src="./img/logo.png" alt="logo" width="100" />
             <span>Scancheck</span>
           </NavLink>
