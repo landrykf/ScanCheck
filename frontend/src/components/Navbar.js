@@ -20,7 +20,7 @@ import {Add} from './Mangalist/Add'
 function Navbar() {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
-  console.log(uid);
+  console.log(userData);
 
   return (
     <div className="nav-container">
@@ -59,8 +59,9 @@ function Navbar() {
                 <FontAwesomeIcon icon={"user-cog"} /> watchlist
               </span>
             </NavLink>
+            
 
-            <h5>{" " + uid?.user?.username}</h5>
+            <h5>{" " + userData?.username}</h5>
 
             <ul>
               <li className="welcome">

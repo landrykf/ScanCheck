@@ -3,7 +3,6 @@ const jwtUtils = require("../utils/jwt.utils");
 const bcrypt = require("bcrypt");
 const { userInfo } = require("./usersController");
 const usersController = require("./usersController");
-// console.log(usersController.userInfo);
 module.exports = {
   signUp: async (req, res) => {
     const { username, email, password, bio } = req.body;
@@ -75,7 +74,6 @@ module.exports = {
     //Paramètres
     let email = req.body.email;
     let password = req.body.password;
-    console.log(email);
 
     if (email == null || password == null) {
       return res.status(400).json({ error: "Paramètres manquant" });
@@ -84,13 +82,12 @@ module.exports = {
     //On vérifie si l'email du login existe si oui on vérifie le MDP si non on retourne une erreur
 
     //     const foundUser = await UserModel.findOne ({ "email" : req.body.email });
-    //  console.log(foundUser);
 
     UserModel.findOne({
       email: email, 
     })
       .then((userFound) => {
-        //   console.log(userFound); 
+ 
         if (userFound) {
           bcrypt.compare(
             password,

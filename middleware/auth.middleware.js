@@ -7,7 +7,6 @@ module.exports.checkUser = (req, res, next) => {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
       if (err) {
         res.locals.user = null;
-        // res.cookie("jwt", "", { maxAge: 1 });
         next();
       } else {
         let user = await UserModel.findById(decodedToken.userId);
@@ -23,14 +22,13 @@ module.exports.checkUser = (req, res, next) => {
 
 module.exports.requireAuth = (req, res, next) => {
     const token = req.headers.authorization.slice(7);
-    // console.log(token); 
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
       if (err) {
         console.log(err);
-        res.send(200).json('no token pass')
+        res.send(500).json('no token pass')
       } else {
-        console.log(decodedToken.userId);
+        console.log(decodedToken.userId + ' token passer dans requireAuth');
         next();
       }
     });

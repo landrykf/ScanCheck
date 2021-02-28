@@ -8,7 +8,7 @@ module.exports = {
   },
 
   userInfo: (req, res) => {
-    console.log(req.params);
+    console.log('le parmamètre de l\'url est '+ req.params.id);
     if (!ObjectID.isValid(req.params.id))
       return res.status(400).send(`ID inconnu : ` + req.params.id);
 

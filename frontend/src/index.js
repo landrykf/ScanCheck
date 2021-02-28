@@ -22,7 +22,7 @@ import reportWebVitals from './reportWebVitals';
 
 const store = createStore(
   RootReducer,
-  composeWithDevTools(applyMiddleware(thunk,logger))
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 ReactDOM.render(

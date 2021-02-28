@@ -3,7 +3,6 @@ const ObjectID = require("mongoose").Types.ObjectId;
 
 module.exports = {
   follow: async (req, res) => {
-    //   console.log(req.body);
     if (!ObjectID.isValid(req.params.id) || !ObjectID.isValid(req.body.idToFollow)){
         
         return res.status(400).send(`ID inconnu : ` + req.params.id);

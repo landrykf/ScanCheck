@@ -8,7 +8,6 @@ const { uploadErrors } = require("../utils/errors.utils");
 module.exports = {
   uploadProfil: async (req, res) => {
     try {
-      // console.log(req.file);
       if (
         req.file.detectedMimeType !== "image/jpg" &&
         req.file.detectedMimeType !== "image/png" &&
@@ -17,7 +16,6 @@ module.exports = {
         throw Error("invalid file");
       if (req.file.size > 500000) throw Error("max size");
     } catch (err) {
-      // console.log(err);
       const errors = uploadErrors(err);
       return res.status(401).json({ errors });
     }

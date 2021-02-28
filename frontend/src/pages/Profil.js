@@ -3,18 +3,19 @@ import {useContext} from 'react'
 import Log from '../components/Log'
 import {UidContext} from '../components/AppContext';
 import Navbar from '../components/Navbar';
+import { ProfilHeader } from '../components/Profil/ProfilHeader';
 
 
 const Profil = () => {
     const uid = useContext(UidContext)
-    console.log(uid);
     return(
         
         <div className='profil-page' >
-            {uid? (
+            {uid ?  (
+                
                 <div>
                      <Navbar /> 
-                    {/* <h2>UPDATE PAGE</h2> */}
+                    <ProfilHeader />
                 </div>
                 
             ): (

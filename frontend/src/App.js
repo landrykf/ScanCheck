@@ -27,7 +27,7 @@ function App() {
 
       })
       .then((res) =>{
-        console.log(res)
+        // console.log(res)
         setUid(res.data)
       })
       .catch((err) =>{
@@ -36,16 +36,18 @@ function App() {
     };
     fetchToken();
 
-    try {
+  //   try {
       
-      dispatch(getUser())      
+  //     dispatch(getUser(uid))      
 
-    } catch (err) {
-      console.log(err)
-    }
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
 
  
-  }, []);
+  // }, []);
+  if (uid) dispatch(getUser(uid));
+}, [uid, dispatch]);
 
 
 

@@ -12,20 +12,20 @@ function UpdateProfil() {
   const [updateForm, setUpdateForm] = useState(true);
 
   const userData = useSelector((state) => state.userReducer);
-//   console.log(userData);
+  console.log(userData);
   const dispatch = useDispatch();
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    dispatch(updateBio(userData.user.id, bio));
+    dispatch(updateBio(userData._id, bio));
     setUpdateForm(false);
     let sUsername = username;
 
     if(sUsername == null){
-        sUsername = userData.user.username;
+        sUsername = userData.username;
     }
     if (email == null) {
-        setEmail(userData.user.email);
+        setEmail(userData.email);
     }
     
     dispatch(updateInfo(sUsername,email))
@@ -45,7 +45,7 @@ const test = (username)=>{
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpHD3N92mlHfopLSOZZpvyXGpcO19FdenrLA&usqp=CAU"
           alt="user pic"
         />
-        <h4>Votre pseudo : {userData?.user?.username}</h4>
+        <h4>Votre pseudo : {userData?.username}</h4>
       </div>
       <div className="info-part">
 
@@ -55,7 +55,7 @@ const test = (username)=>{
           {updateForm === false && (
             <>
               <p onClick={() => setUpdateForm(!updateForm)}>
-                {userData?.user?.bio}
+                {userData.bio}
               </p>
               <button onClick={() => setUpdateForm(!updateForm)}>
                 Modifier bio
@@ -66,7 +66,7 @@ const test = (username)=>{
             <>
               <textarea
                 type="text"
-                defaultValue={userData?.user?.bio}
+                defaultValue={userData?.bio}
                 onChange={(event) => setBio(event.target.value)}
               ></textarea>
               <button onClick={handleUpdate}>Valider changement</button>
@@ -82,7 +82,7 @@ const test = (username)=>{
 
             <input
               type="text"
-              defaultValue={userData?.user?.username}
+              defaultValue={userData?.username}
               onChange={(event) => setUsername(event.target.value)}
             />
    
@@ -91,7 +91,7 @@ const test = (username)=>{
 
             <input
             type="text"
-            defaultValue={userData?.user?.email}
+            defaultValue={userData.email}
             onChange={(event) => setEmail(event.target.value)}
             />
             <br /> 

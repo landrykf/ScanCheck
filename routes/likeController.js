@@ -9,7 +9,6 @@ module.exports = {
 
     try {
       await MangaModel.findByIdAndUpdate(
-        // console.log(req.body.id),
         req.params.id,
         {
           $addToSet: { likers: req.body.id },
@@ -41,7 +40,6 @@ module.exports = {
 
     try {
       await MangaModel.findByIdAndUpdate(
-        // console.log(req.body.id),
         req.params.id,
         {
           $pull: { likers: req.body.id },

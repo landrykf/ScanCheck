@@ -5,22 +5,23 @@ export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
 export const UPDATE_INFO = "UPDATE_INFO"
 
-export const getUser = (userId) => {
+export const getUser = (uid) => {
   const token = localStorage.getItem("token");
   // console.log(token);
   
   return async (dispatch) => {
     await axios({
       method: "get",
-      url: `${process.env.REACT_APP_API_URL}api/user/60387b034a344e7a94cc312b`,
+      url: `${process.env.REACT_APP_API_URL}api/user/${uid}`,
       withCredentials: false, 
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         dispatch({ type: GET_USER, payload: res.data });
+
       })
       .catch((err) => {
         console.log(err);
@@ -35,7 +36,7 @@ export const updateBio = (userId ,bio) => {
     return (dispatch) => {
         return axios({
             method: "put",
-            url:`${process.env.REACT_APP_API_URL}api/user/60387b034a344e7a94cc312b`,
+            url:`${process.env.REACT_APP_API_URL}api/user/${userId}`,
             whithCredentials: false,
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -50,14 +51,14 @@ export const updateBio = (userId ,bio) => {
     }
 }
 
-export const updateInfo = (username,email) => {
+export const updateInfo = (username,email, uid) => {
     const token = localStorage.getItem('token');
     console.log({username})
 
     return(dispatch) => {
         return axios({
             method: "put",
-            url:`${process.env.REACT_APP_API_URL}api/user/60387b034a344e7a94cc312b`,
+            url:`${process.env.REACT_APP_API_URL}api/user/${uid}`,
             whithCredentials: false,
             headers: {
                 'Authorization': `Bearer ${token}`,
