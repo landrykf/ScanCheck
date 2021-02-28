@@ -18,7 +18,7 @@ export default function userReducer(state = initialState, action) {
         return {
             ...state,
             username:action.payload,
-            email:action.payload
+            email:action.payload,
         };
 
     case UPLOAD_PICTURE:

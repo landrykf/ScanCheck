@@ -10,13 +10,9 @@ const Profil = () => {
   return (
     <div className="profil-page">
       {uid ? (
-        <div>
-          <div>
-            <Navbar />
-          </div>
-          <div>
-              <ProfilHeader />
-          </div>
+        <div className="profil-page-container">
+          <Navbar />
+          <ProfilHeader />
         </div>
       ) : (
         <div className="log-container">

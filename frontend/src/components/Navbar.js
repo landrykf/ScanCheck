@@ -1,24 +1,19 @@
 import React from "react";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { UidContext } from "./AppContext";
+// import { UidContext } from "./AppContext";
 import Logout from "./Log/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 
-//parti 2
+//partie 2
 
-import {Add} from './Mangalist/Add'
-
-
-// import {
-//   faCheckSquare,
-//   faCoffee,
-//   faSignInAlt,
-// } from "@fortawesome/fontawesome-free-solid";
+// import {Add} from './Mangalist/Add'
 
 function Navbar() {
-  const uid = useContext(UidContext);
+  //TODO: utiliser "uid" une condition ternaire pour gérer l'affichage des pages quant l'utilisateur est connecté ou pas
+  // const uid = useContext(UidContext);
+
   const userData = useSelector((state) => state.userReducer);
   console.log(userData);
 
@@ -29,7 +24,6 @@ function Navbar() {
             <img src="./img/logo.png" alt="logo" width="100" />
             <span>Scancheck</span>
           </NavLink>
-        </div>
 
         {/* <Add/> */}
 
@@ -73,6 +67,7 @@ function Navbar() {
           </div>
         </div>
 
+    </div>
     </div>
   );
 }

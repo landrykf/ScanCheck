@@ -19,7 +19,6 @@ export const getUser = (uid) => {
       },
     })
       .then((res) => {
-        console.log(res);
         dispatch({ type: GET_USER, payload: res.data });
       })
       .catch((err) => {
@@ -28,13 +27,13 @@ export const getUser = (uid) => {
   };
 };
 
-export const updateBio = (userId, bio) => {
+export const updateBio = (uid, bio) => {
   const token = localStorage.getItem("token");
 
   return (dispatch) => {
     return axios({
       method: "put",
-      url: `${process.env.REACT_APP_API_URL}api/user/${userId}`,
+      url: `${process.env.REACT_APP_API_URL}api/user/${uid}`,
       whithCredentials: false,
       headers: {
         Authorization: `Bearer ${token}`,
@@ -42,17 +41,14 @@ export const updateBio = (userId, bio) => {
       data: { bio },
     })
       .then((res) => {
-        // console.log(res)
         dispatch({ type: UPDATE_BIO, payload: bio });
       })
       .catch((err) => console.log(err));
   };
 };
 
-export const updateInfo = (username, email, uid) => {
+export const updateInfo = (uid, username, email) => {
   const token = localStorage.getItem("token");
-  console.log({ username });
-
   return (dispatch) => {
     return axios({
       method: "put",
@@ -66,9 +62,10 @@ export const updateInfo = (username, email, uid) => {
         email,
       },
     }).then((res) => {
-      console.log(res);
-      dispatch({ type: UPDATE_INFO, payload: { username, email } });
-    });
+      console.log(username)
+      // console.log(res);
+      dispatch({ type: UPDATE_INFO, payload:  {username, email}  });
+    }).catch((err) => console.log(err))
   };
 };
 

@@ -5,17 +5,36 @@
     flex-direction: column;
 
     img {
-        width: 25%;
-        align-self: center;
+        width: 10%;
+        align-self: flex-start;
     }
     form {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
 
         label, input {
             width: 12%;
-            align-self: center;
+            align-self: flex-start;
+        }
+    }
+}
+
+.nav-tabs {
+    display: flex;
+
+    li{
+        margin-right: 5%;
+        margin-left: 5%;
+        list-style: none;
+        cursor: pointer;
+    }
+}
+
+.profil-page-container{
+    .movie-page{
+        .container{
+            margin: 0;
         }
     }
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { updateBio, updateInfo } from "../../actions/user.actions";
 
 function UpdateProfil() {
   const [bio, setBio] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
@@ -33,16 +33,14 @@ function UpdateProfil() {
 
   };
 
-const test = (username)=>{
-    console.log({username});
-}  
+  
 
   return (
     <div className="setting-page">
       <h2>Login</h2>
       <div className="img-part">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpHD3N92mlHfopLSOZZpvyXGpcO19FdenrLA&usqp=CAU"
+          src={userData.picture}
           alt="user pic"
         />
         <h4>Votre pseudo : {userData?.username}</h4>
@@ -55,7 +53,7 @@ const test = (username)=>{
           {updateForm === false && (
             <>
               <p onClick={() => setUpdateForm(!updateForm)}>
-                {userData.bio}
+                {userData?.bio}
               </p>
               <button onClick={() => setUpdateForm(!updateForm)}>
                 Modifier bio
