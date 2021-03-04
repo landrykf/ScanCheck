@@ -12,7 +12,7 @@ const Profil = () => {
       {uid ? (
         <div className="profil-page-container">
           <Navbar />
-          <ProfilHeader />
+          <ProfilHeader body = {true} followings = {false} followers = {false} />
         </div>
       ) : (
         <div className="log-container">

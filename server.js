@@ -3,8 +3,10 @@ const server = express();
 const bodyParser = require("body-parser");
 const apiRouter = require("./apiRouter").router;
 const {checkUser, requireAuth} = require('./middleware/auth.middleware')
+const unless = require('express-unless');
+const static = express.static(__dirname + '/public');
+static.unless = unless;
 const cors = require("cors");
-
 require("dotenv").config({ path: "./config/.env" });
 require("./config/db");
 
@@ -38,9 +40,17 @@ server.use(bodyParser.json());
 
 //jwt
 server.get('*', checkUser);
+checkUser.unless = unless;
+// server.use(checkUser.unless({
+//   path: [
+//     'jwtid api/users api/user/:id',
+//     { url: '/', methods: ['GET'] }
+//   ]
+// }));
+
 server.get('/jwtid', requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id)
-  // console.log(res.locals.user._id);
+  console.log(res.locals.user._id);
 });
 
 server.use("/api/", apiRouter);

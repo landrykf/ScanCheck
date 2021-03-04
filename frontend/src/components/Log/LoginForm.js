@@ -32,7 +32,7 @@ const LoginForm = () => {
         })
         .catch((err)=>{
             // console.log(err.response.data.error)
-            // console.log(err.response)
+            console.log(err.response)
                 if (err.response.data.error === "mot de passe invalid" ) {
                     passwordError.innerHTML = err.response.data.error;
                     

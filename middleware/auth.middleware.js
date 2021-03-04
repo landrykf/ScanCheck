@@ -1,9 +1,13 @@
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/user");
 
-module.exports.checkUser = (req, res, next) => {
-    console.log(req.headers.authorization);
-    const token = req.headers.authorization.slice(7);
+
+module.exports.checkUser = async (req, res, next) => {
+  
+  console.log(req.headers)
+    // const token = await req.headers.authorization.slice(7);
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDMwZDZmMmY2ZDhkZTQxNzA0NWYzNWUiLCJpYXQiOjE2MTQ3NDY3NTEsImV4cCI6MTYxNDgxODc1MX0.B3QnNEdvj9-w7aiF0ruVO8GBlV2kxuCS4bZYY3tYIFs';
+    
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
       if (err) {
@@ -19,10 +23,13 @@ module.exports.checkUser = (req, res, next) => {
     res.locals.user = null;
     next();
   }
+  
+  
 };
 
-module.exports.requireAuth = (req, res, next) => {
-    const token = req.headers.authorization.slice(7);
+module.exports.requireAuth = async (req, res, next) => {
+    
+    const token = await req.headers.authorization.slice(7);
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
       if (err) {

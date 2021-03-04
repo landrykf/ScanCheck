@@ -17,7 +17,7 @@ exports.router = (function () {
   apiRouter.route("/user/register").post(authController.signUp);
   apiRouter.route("/user/login").post(authController.signIn);
   //User
-  apiRouter.route("/user").get(userController.getAllUser);
+  apiRouter.route("/users").get(userController.getAllUser);
   apiRouter.route("/user/:id").get(userController.userInfo);
   apiRouter.route("/user/me").get(userController.userInfo);
 

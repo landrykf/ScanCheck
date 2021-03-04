@@ -15,7 +15,7 @@ function Navbar() {
   // const uid = useContext(UidContext);
 
   const userData = useSelector((state) => state.userReducer);
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <div className="nav-container">

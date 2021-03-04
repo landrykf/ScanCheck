@@ -5,6 +5,7 @@ import {UidContext} from "./components/AppContext"
 import axios from "axios"
 import { useDispatch } from "react-redux"
 import { getUser } from './actions/user.actions';
+import { getUsers } from './actions/users.actions';
 
 // part 2
 import './styles/App.css'
@@ -36,17 +37,10 @@ function App() {
     };
     fetchToken();
 
-  //   try {
-      
-  //     dispatch(getUser(uid))      
-
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-
- 
-  // }, []);
-  if (uid) dispatch(getUser(uid));
+  if (uid){
+    dispatch(getUser(uid));
+  } 
+  
 }, [uid, dispatch]);
 
 
@@ -56,7 +50,6 @@ function App() {
   return (
     <div className="App">
       <UidContext.Provider value={uid}>
-      
 
         
         <Routes />
