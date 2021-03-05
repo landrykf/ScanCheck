@@ -4,6 +4,9 @@ export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
 export const UPDATE_INFO = "UPDATE_INFO";
 export const UPLOAD_PICTURE = "UPLOAD_PICTURE";
+export const FOLLOW_USER = "FOLLOW_USER";
+export const UNFOLLOW_USER = "UNFOLLOW_USER";
+
 
 export const getUser = (uid) => {
   const token = localStorage.getItem("token");
@@ -83,3 +86,33 @@ export const uploadPicture = (data, id) => {
       .catch((err) => console.log(err));
   };
 };
+
+export const followUser = (followerId, idToFollow) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `${process.env.REACT_APP_API_URL}api/user/follow/` + followerId,
+      data : {idToFollow}
+    })
+      .then((res) => {
+        // console.log(res);
+        dispatch({type: FOLLOW_USER, payload: {idToFollow}})
+      })
+      .catch((err) => console.log(err))
+  }
+}
+
+export const unFollowUser = (followerId, idToUnFollow) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `${process.env.REACT_APP_API_URL}api/user/unFollow/` + followerId,
+      data : {idToUnFollow},
+    })
+      .then((res) => {
+        // console.log(res);
+        dispatch({type: UNFOLLOW_USER, payload: { idToUnFollow }})
+      })
+      .catch((err) => console.log(err))
+  }
+}

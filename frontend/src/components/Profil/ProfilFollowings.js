@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { FollowHander } from "./FollowHander";
 
 export const ProfilFollowings = () => {
   const userData = useSelector((state) => state.userReducer);
@@ -17,12 +18,11 @@ export const ProfilFollowings = () => {
             if (user._id === userData.following[i]) {
               return (
                 <li key={user.id}>
-                  <img
-                    src={user.picture}
-                    alt="user-pic"
-                  />
+                  <img src={user.picture} alt="user-pic" />
                   <h4> {user.username}</h4>
-                  <h2> follow handler </h2>
+                  <div class="follow-handler">
+                    <FollowHander idToFollow={user._id} />
+                  </div>
                 </li>
               );
             }
