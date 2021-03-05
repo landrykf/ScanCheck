@@ -40,7 +40,7 @@ server.use(bodyParser.json());
 
 //jwt
 server.get('*', checkUser);
-checkUser.unless = unless;
+// checkUser.unless = unless;
 // server.use(checkUser.unless({
 //   path: [
 //     'jwtid api/users api/user/:id',
@@ -54,6 +54,10 @@ server.get('/jwtid', requireAuth, (req, res) => {
 });
 
 server.use("/api/", apiRouter);
+
+//problème headers.auth
+
+
 
 
 server.listen(process.env.PORT, () => {
