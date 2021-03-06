@@ -1,0 +1,28 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 66px 1fr;
+  border: 2px solid orange;
+  margin: 10px;
+  padding: 16px;
+  border-radius: 20px;
+  margin: 8px auto;
+  position: relative;
+  min-height: 100px;
+
+  .fa-spinner {
+    position: absolute;
+    top: 40%;
+    left: 49%;
+    font-size: 1.5rem;
+    color: orange;
+  }
+  .card-left {
+    img {
+      height: 52px;
+      width: 52px;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.192);
+      object-fit: cover;
+    }
+  }
+}

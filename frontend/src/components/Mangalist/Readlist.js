@@ -23,7 +23,7 @@ export const Readlist = () => {
         {readlist.length > 0 ? (
           <div className="movie-grid">
             {readlist.map((manga) => (
-              <MangaCard manga={manga} type="readlist" />
+              <MangaCard manga={manga} type="readlist" key={manga.mal_id}/>
             ))}
           </div>
         ) : (

@@ -13,7 +13,7 @@ const initialState = {
   showDetail: [],
 };
 
-//create contect
+//create contest
 
 export const GlobalContext = createContext(initialState);
 

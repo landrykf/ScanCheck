@@ -7,7 +7,7 @@ function Top({ topManga }) {
         <div className="container">
           <h3>Cars Manga</h3>
           {topManga.map((manga) => (
-            <div className="top-card">
+            <div key={manga.mal_id} className="top-card">
                 <div className="top-card">
               <img src={manga.image_url} alt="" />
               {manga.title}

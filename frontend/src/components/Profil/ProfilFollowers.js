@@ -15,10 +15,10 @@ export const ProfilFollowers = () => {
           for (let i = 0; i < userData.followers.length; i++) {
             if (user._id === userData.followers[i]) {
               return (
-                <li key={user.id}>
+                <li key={user._id}>
                   <img src={user.picture} alt="user-pic" />
                   <h4> {user.username}</h4>
-                  <div class="follow-handler">
+                  <div className="follow-handler">
                     <FollowHander idToFollow={user._id} />
                   </div>
                 </li>

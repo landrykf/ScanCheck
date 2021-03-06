@@ -18,7 +18,7 @@ export const Readed = () => {
         {readed.length > 0 ? (
           <div className="movie-grid">
             {readed.map((manga) => (
-              <MangaCard manga={manga} type="readed" />
+              <MangaCard manga={manga} type="readed" key={manga.mal_id} />
             ))}
           </div>
         ) : (
