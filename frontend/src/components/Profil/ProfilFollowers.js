@@ -5,7 +5,7 @@ import { FollowHander } from "./FollowHander";
 export const ProfilFollowers = () => {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
-
+  console.log(userData);
   return (
     <div className="profil-body-followings">
       <h5>Abonnés : {userData?.followers?.length}</h5>
@@ -19,7 +19,7 @@ export const ProfilFollowers = () => {
                   <img src={user.picture} alt="user-pic" />
                   <h4> {user.username}</h4>
                   <div className="follow-handler">
-                    <FollowHander idToFollow={user._id} />
+                    <FollowHander idToFollow={user._id} type={'suggestion'}/>
                   </div>
                 </li>
               );

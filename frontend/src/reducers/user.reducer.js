@@ -40,10 +40,11 @@ export default function userReducer(state = initialState, action) {
       };
     case UNFOLLOW_USER:
       return {
+        //BUG
         ...state,
         following: state.following.filter(
           (id) => id !== action.payload.idToUnfollow,
-          // console.log(state.following)
+          console.log(state.following)
         ),
       };
 

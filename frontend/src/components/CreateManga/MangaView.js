@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMangas } from '../../actions/manga.actions'
+import { getMangas } from '../../actions/manga.actions';
 import { isEmpty } from '../Utils';
 import {Card} from './Card'
 

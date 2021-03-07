@@ -17,7 +17,7 @@ export const FollowHander = ({ idToFollow, type }) => {
   const handleUnfollow = () => {
       dispatch(unFollowUser(userData._id, idToFollow));
       SetIsFollowed(false)
-      // console.log(unFollowUser);
+      console.log(isFollowed);
   };
 
   useEffect(() => {
@@ -32,12 +32,15 @@ export const FollowHander = ({ idToFollow, type }) => {
     <>
       {isFollowed && !isEmpty(userData) && (
         <span onClick = {handleUnfollow}>
-          <button className="unfollow-btn">Abonné</button>
+         {type === "suggestion" && <button className="unfollow-btn">Abonné</button>}
+         {type === "card" && <img src = {'../icons/checked.svg'} alt="checked" />}
         </span>
       )}
       {isFollowed === false && !isEmpty(userData) && (
         <span onClick = {handleFollow}>
-          <button className="follow-btn">suivre</button>
+         {type === "suggestion" && <button className="follow-btn">suivre</button>}
+         {type === "card" && <img src = {'../icons/check.svg'} alt="check" />}
+
         </span>
       )}
     </>
