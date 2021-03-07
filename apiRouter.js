@@ -56,7 +56,7 @@ apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadPro
 
   //comments
   apiRouter
-    .route("/manga/comment-manga/:id")
+    .route("/manga/manga-comment/:id")
     .patch(commentController.mangaComment);
   apiRouter
     .route("/manga/edit-manga-comment/:id")

@@ -47,7 +47,7 @@ module.exports = {
 
         return docs.save((err) => {
           if (!err) return res.status(200).send(docs);
-          return res.status(500).send(err);
+          return res.status(500).send('comment'+err);
         });
       });
     } catch (err) {
