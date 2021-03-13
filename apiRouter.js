@@ -35,7 +35,10 @@ apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadPro
   apiRouter.route("/user/follow/:id").patch(suscribeController.follow);
   apiRouter.route("/user/unfollow/:id").patch(suscribeController.unfollow);
 
-  //Favorite
+
+//-----------------------------------
+  // Favorite 
+
 
   apiRouter.route("/user/favoriteNumber").post(favoriteController.number);
   apiRouter.route("/user/favorited").post(favoriteController.favorited);
@@ -43,6 +46,7 @@ apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadPro
   apiRouter
     .route("/user/removefromfavorite")
     .post(favoriteController.removeFromFavorite);
+  apiRouter.route("/user/getFavoritedManga").post(favoriteController.getFavoredManga)
 
   //Manga
   apiRouter.route("/manga").get(mangaController.getManga);
@@ -64,12 +68,6 @@ apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadPro
   apiRouter
     .route("/manga/delete-manga-comment/:id")
     .patch(commentController.deleteMangaComment);
-
-
-//-----------------------------------
-  // Favorite 
-
-  
 
   return apiRouter;
 })();

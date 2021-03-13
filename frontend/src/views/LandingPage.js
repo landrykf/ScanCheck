@@ -31,7 +31,7 @@ export const LandingPage = () => {
 
                     <div>                    
                     <React.Fragment key={index}>
-                        <GridCard image ={manga?.image_url}  mangaId={manga.mal_id}/>
+                        <GridCard title={manga?.title} image ={manga?.image_url}  mangaId={manga.mal_id}/>
                     </React.Fragment>
                     </div>
                     )

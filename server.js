@@ -50,7 +50,7 @@ server.get('*', checkUser);
 
 server.get('/jwtid', requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id)
-  console.log(res.locals.user._id);
+  // console.log(res.locals.user._id);
 });
 
 server.use("/api/", apiRouter);

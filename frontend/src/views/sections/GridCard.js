@@ -12,10 +12,10 @@ export const GridCard = (props) => {
 
         return (
             <div>
-                <h1>card</h1>
                 {/* {console.log(props)} */}
                 <a href={`/manga/${props.mangaId}`}>
                     <img src={props.image} alt="pics" />
+                    <h5>{props.title}</h5>
                 </a>
             </div>
         )

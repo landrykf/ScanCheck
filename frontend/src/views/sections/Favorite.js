@@ -1,36 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export const Favorite = (props) => {
+  const userData = useSelector((state) => state.userReducer);
+
+  const userFrom = props.userFrom;
+  const mangaId = props.mangaId;
+  const mangaTitle = props.mangaTitle;
+  const mangaImage = props.mangaImage;
+
   const [FavoriteNumber, setFavoriteNumber] = useState(0);
   const [Favorited, setFavorited] = useState(false);
 
-  const variable = {
+  let variable = {
     userFrom: props.userFrom,
-    mangaId: props.mangaId,
-    mangaTitle: props.mangaTitle,
-    mangaImage: props.mangaImage,
+    mangaId: mangaId,
+    mangaTitle: mangaTitle,
+    mangaImage: mangaImage,
   };
-
-  useEffect(() => {
-    axios.post("/api/user/favoriteNumber", variable).then((response) => {
-      if (response.data.success) {
-        setFavoriteNumber(response.data.suscribeNumber);
-        console.log(response.data);
-      } else {
-        alert("failed to get favoriteNumber");
-      }
-    });
-
-    axios.post("/api/user/favorited", variable).then((response) => {
-      if (response.data.success) {
-        setFavorited(response.data.favorited);
-      } else {
-        alert("Failed to get Favorite");
-      }
-    });
-  }, []);
-
+// console.log(variable);
   const onClickFavorite = () => {
     if (Favorited) {
       //Ajouté
@@ -39,13 +28,14 @@ export const Favorite = (props) => {
           setFavoriteNumber(FavoriteNumber - 1);
           setFavorited(!Favorited);
         } else {
-          alert("Faied to add to remove from favorite");
+          alert("Failed to remove from favorite");
         }
       });
     } else {
       //Pas encore ajouté
       axios.post("/api/user/addToFavorite", variable).then((response) => {
         if (response.data.success) {
+          //   console.log(response.data);
           setFavoriteNumber(FavoriteNumber + 1);
           setFavorited(!Favorited);
         } else {
@@ -55,10 +45,34 @@ export const Favorite = (props) => {
     }
   };
 
+  useEffect(() => {
+      
+ 
+    axios.post("/api/user/favoriteNumber", variable).then((response) => {
+      if (response.data.success) {
+        setFavoriteNumber(response.data.suscribeNumber);
+        // console.log(response.data);
+      } else {
+        alert("failed to get favoriteNumber");
+      }
+    });
+
+    axios.post("/api/user/favorited", variable).then((response) => {
+        console.log(variable);
+      if (response.data.success) {
+        // console.log(response);
+        setFavorited(!response.data.suscribed);
+        console.log(Favorited);
+      } else {
+        alert("Failed to get Favorite");
+      }
+    });
+  }, [variable, Favorited]);
+
   return (
     <div>
       <button onClick={onClickFavorite}>
-        {Favorited ? "remove From Favorite" : "Add to Favorite"}
+        {!Favorited ? "Ajouter aux Favoris" : "Supprimer des Favoris"}
       </button>
       <h5> nombre de fav {FavoriteNumber}</h5>
     </div>

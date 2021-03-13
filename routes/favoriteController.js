@@ -11,15 +11,16 @@ module.exports = {
 
   favorited: (req, res) => {
     FavoriteModel.find({
-      mangaId: req.body.mangaId,
       userFrom: req.body.userFrom,
+      mangaId: req.body.mangaId,
     }).exec((err, suscribe) => {
       if (err) return res.status(400).send(err);
       let result = false;
-      if (suscribe.length !== 0) {
+      console.log(req.body.userFrom);
+      if (suscribe.length === 0) {
         result = true;
       }
-
+      
       res.status(200).json({ success: true, suscribed: result });
     });
   },
@@ -27,6 +28,7 @@ module.exports = {
   addToFavorite: (req, res) => {
 
     const favorite = new FavoriteModel(req.body);
+    // console.log(req.body);
     favorite.save((err, doc) => {
       if (err) return res.json({ success: false, err });
       return res.status(200).json({ success: true });
@@ -38,6 +40,7 @@ module.exports = {
       mangaId: req.body.mangaId,
       userFrom: req.body.userFrom,
     }).exec((err, doc) => {
+
       if (err) return res.status(400).json({ success: false, err });
       res.status(200).json({ success: true, doc });
     });
@@ -45,7 +48,7 @@ module.exports = {
 
   getFavoredManga: (req, res) => {
     //Need to find all of the Users that I am subscribing to From Subscriber Collection
-    Favorite.find({ userFrom: req.body.userFrom }).exec((err, favorites) => {
+    FavoriteModel.find({ userFrom: req.body.userFrom }).exec((err, favorites) => {
       if (err) return res.status(400).send(err);
       return res.status(200).json({ success: true, favorites });
     });

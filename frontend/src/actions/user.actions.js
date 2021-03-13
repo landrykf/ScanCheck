@@ -65,7 +65,7 @@ export const updateInfo = (uid, username, email) => {
         email,
       },
     }).then((res) => {
-      console.log(username)
+      // console.log(username)
       // console.log(res);
       dispatch({ type: UPDATE_INFO, payload:  {username, email}  });
     }).catch((err) => console.log(err))

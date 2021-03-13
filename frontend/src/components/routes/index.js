@@ -18,7 +18,7 @@ import MoreInfo from "../../pages/MoreInfo";
 import { MangaView } from "../CreateManga/MangaView";
 import { LandingPage } from "../../views/LandingPage";
 import { MangaDetailPage } from "../../views/MangaDetailPage";
-
+import { MyFavorite } from "../../views/MyFavorite"
 const index = () => {
   return (
     <GlobalProvider>
@@ -38,6 +38,7 @@ const index = () => {
           {/* --------------------------------------------- */}
           <Route path="/landing" exact component={LandingPage} />
           <Route exact path="/manga/:mangaId" component={MangaDetailPage}/>
+          <Route exact path="/myfavorites" component={MyFavorite} />
           <Redirect to="/" />
         </Switch>
       </Router>
