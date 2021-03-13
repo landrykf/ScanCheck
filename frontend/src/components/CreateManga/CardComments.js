@@ -4,7 +4,8 @@ import mangaReducer from "../../reducers/manga.reducer";
 import {addComment, getMangas} from "../../actions/manga.actions"
 import { FollowHander } from "../Profil/FollowHander";
 import { isEmpty } from "../Utils";
-import {EditDeleteComment} from './EditDeleteComment'
+import {EditDeleteComment} from './EditDeleteComment';
+
 export const CardComments = ({manga}) => {
   const usersData = useSelector((state) => state.usersReducer);
   const userData = useSelector((state) => state.userReducer);

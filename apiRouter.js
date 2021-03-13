@@ -64,5 +64,12 @@ apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadPro
   apiRouter
     .route("/manga/delete-manga-comment/:id")
     .patch(commentController.deleteMangaComment);
+
+
+//-----------------------------------
+  // Favorite 
+
+  
+
   return apiRouter;
 })();

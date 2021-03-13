@@ -18,6 +18,10 @@ export const EditDeleteComment = ({ comment, mangaId }) => {
     }
   };
 
+  const handleDelete = () => {
+    
+  }
+
   useEffect(() => {
     const checkAuthor = () => {
       if (uid === comment.commenterId) {
@@ -50,6 +54,16 @@ export const EditDeleteComment = ({ comment, mangaId }) => {
             defaultValue={comment.text}
           />
           <br />
+          <div className="btn">
+            <span onClick={() => {
+              if(window.confirm('Supprimer?')){
+                handleDelete();
+              }
+            }}>
+              <img src="../icons/trash.svg" alt="trash"/>
+            </span>
+
+          </div>
           <input type="submit" value="Valider changement" />
         </form>
       )}

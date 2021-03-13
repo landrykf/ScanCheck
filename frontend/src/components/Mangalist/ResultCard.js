@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 
-
 export const ResultCard = ({ manga }) => {
   const { addMangaToReadList, addMangaToReaded, readlist, readed } = useContext(
     GlobalContext
@@ -37,7 +36,7 @@ export const ResultCard = ({ manga }) => {
           <button
             className="btn"
             disabled={readListDisable}
-            onClick={() => addMangaToReadList(manga)}
+            onClick={() => addMangaToReadList(manga)}          
           >
             Ajouter à ma Mangathèque
           </button>

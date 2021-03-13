@@ -16,6 +16,8 @@ import { GlobalProvider } from "../../context/GlobalState";
 import Explorer from "../../pages/Explorer";
 import MoreInfo from "../../pages/MoreInfo";
 import { MangaView } from "../CreateManga/MangaView";
+import { LandingPage } from "../../views/LandingPage";
+import { MangaDetailPage } from "../../views/MangaDetailPage";
 
 const index = () => {
   return (
@@ -31,6 +33,11 @@ const index = () => {
           <Route path="/explorer" exact component={Explorer} />
           <Route path="/detail" exact component={MoreInfo} />
           <Route path="/favorite" exact component={MangaView} />
+
+
+          {/* --------------------------------------------- */}
+          <Route path="/landing" exact component={LandingPage} />
+          <Route exact path="/manga/:mangaId" component={MangaDetailPage}/>
           <Redirect to="/" />
         </Switch>
       </Router>

@@ -82,4 +82,4 @@ export const editComment = (mangaId, commentId, text) => {
         .catch((err) => console.log(err))
 
     }
-}
+} 

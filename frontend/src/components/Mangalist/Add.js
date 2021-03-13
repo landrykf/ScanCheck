@@ -30,7 +30,7 @@ export const Add = () => {
         <div className="add-content">
           <div className="input-wrapper">
             <input
-              type="text"
+              type="search"
               placeholder="Rechercher un manga"
               value={query}
               onChange={onChange}

@@ -1,4 +1,5 @@
 import React from "react";
+import { CardComments } from "../CreateManga/CardComments";
 
 function DetailCard({ manga }) {
   console.log(manga);
@@ -17,6 +18,7 @@ function DetailCard({ manga }) {
       <div className="detail-text">
         <p>{manga.synopsis}</p>
       </div>
+      <CardComments/>
     </div>
   );
 }

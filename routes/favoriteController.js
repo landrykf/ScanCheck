@@ -5,7 +5,6 @@ module.exports = {
   number: (req, res) => {
     FavoriteModel.find({ mangaId: req.body.mangaId }).exec((err, suscribe) => {
       if (err) return res.status(400).send(err);
-
       res.status(200).json({ success: true, suscribeNumber: suscribe.length });
     });
   },
@@ -16,7 +15,6 @@ module.exports = {
       userFrom: req.body.userFrom,
     }).exec((err, suscribe) => {
       if (err) return res.status(400).send(err);
-
       let result = false;
       if (suscribe.length !== 0) {
         result = true;
