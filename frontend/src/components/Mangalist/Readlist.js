@@ -31,7 +31,7 @@ export const Readlist = () => {
         )}
       </div>
       <div>
-        {console.log(showDetail)}
+        {/* {console.log(showDetail)} */}
         {/* {showDetail.length > 0 ? (
           <div>
             {(<div>

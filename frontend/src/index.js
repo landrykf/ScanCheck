@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
@@ -25,7 +25,6 @@ const store = createStore(
   RootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-
 store.dispatch(getUsers());
 
 ReactDOM.render(

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/user");
 // const isEmpty = require('../utils/isEmpty')
- const isEmpty = (value) => {
+const isEmpty = (value) => {
   return (
     value === undefined ||
     value === null ||
@@ -11,17 +11,16 @@ const UserModel = require("../models/user");
 };
 
 module.exports.checkUser = async (req, res, next) => {
-  
-  if(!isEmpty(res.req.rawHeaders)){
-    // console.log(res.req.rawHeaders[7].slice(7));
+  console.log(res.headers);
 
-    const token = await res.req.rawHeaders[7].slice(7);
-    // const token =
-    //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDMwZDZmMmY2ZDhkZTQxNzA0NWYzNWUiLCJpYXQiOjE2MTQ5MTk4NDQsImV4cCI6MTYxNDk5MTg0NH0.Ocfkz4MXvujK4bekrRz5QZXEfA3xdW6w2ocsPhJsGpQ";
-  
+  if (!isEmpty(req.headers.authorization)) {
+    // const token = await res.req.rawHeaders[7].slice(7);
+    const token = req.headers.authorization.split(" ")[1];
+
     if (token) {
       jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
         if (err) {
+          console.log(err);
           res.locals.user = null;
           next();
         } else {
@@ -34,22 +33,23 @@ module.exports.checkUser = async (req, res, next) => {
       res.locals.user = null;
       next();
     }
-
   }
-
 };
 
 module.exports.requireAuth = async (req, res, next) => {
-  if(!isEmpty(res.req.rawHeaders)){
+  if (!isEmpty(req.headers.authorization)) {
+    // const token = res.req.rawHeaders[7].slice(7);
+    const token = req.headers.authorization.split(" ")[1];
 
-    const token = res.req.rawHeaders[7].slice(7);
     if (token) {
       jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
         if (err) {
           console.log(err);
-          // res.send(500).json("no token pass");
+          res.status(500).json("no token pass");
         } else {
-          // console.log(decodedToken.userId + " token passer dans requireAuth");
+          console.log(decodedToken.userId + " token passer dans requireAuth");
+          res.status(200).json(decodedToken.userId);
+
           next();
         }
       });

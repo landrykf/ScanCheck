@@ -5,7 +5,7 @@ import {UidContext} from "./components/AppContext"
 import axios from "axios"
 import { useDispatch } from "react-redux"
 import { getUser } from './actions/user.actions';
-import { getUsers } from './actions/users.actions';
+// import { getUsers } from './actions/users.actions';
 
 // part 2
 import './styles/App.css'
@@ -41,7 +41,7 @@ function App() {
     dispatch(getUser(uid));
   } 
   
-}, [uid, dispatch]);
+}, [uid, dispatch,token]);
 
 
 
