@@ -28,7 +28,6 @@ export const ProfilHeader = (props) => {
       setBodyModal(true);
       setFollowersModal(false)
     }
-    console.log(event.target);
   }
 
 

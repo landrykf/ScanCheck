@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { GridCard } from "../../views/sections/GridCard";
 import {ResultCard} from './ResultCard';
 
 export const Add = () => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([])
+  const [mangas, setManga] = useState([])
 
   const onChange = (event) => {
     event.preventDefault();
@@ -15,10 +16,10 @@ export const Add = () => {
     .then((res)=>res.json())
     .then((data)=>{
         if(!data.errors){
-            setResults(data.results)
+            setManga(data.results)
             // console.log(data.results)
         }else {
-            setResults([]);
+            setManga([]);
         }
     })
 
@@ -37,11 +38,11 @@ export const Add = () => {
             />
           </div>
 
-          {results?.length > 0 && (
+          {mangas?.length > 0 && (
               <ul className="results">
-                  {results.map((manga) => (
+                  {mangas.map((manga) => (
                       <li key={manga.mal_id}>
-                          <ResultCard manga={manga}/>
+                          <ResultCard title={manga?.title} image ={manga?.image_url}  mangaId={manga.mal_id}/>
                       </li>
                   ))}
               </ul>

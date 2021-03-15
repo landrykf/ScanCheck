@@ -5,7 +5,6 @@ import { FollowHander } from "./FollowHander";
 export const ProfilFollowers = () => {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
-  console.log(userData);
   return (
     <div className="profil-body-followings">
       <h5>Abonnés : {userData?.followers?.length}</h5>
