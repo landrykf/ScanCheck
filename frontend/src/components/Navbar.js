@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import Logout from "./Log/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
+import { Add } from "./Mangalist/Add";
 
 //partie 2
 
@@ -25,7 +26,7 @@ function Navbar() {
             <span>Scancheck</span>
           </NavLink>
 
-        {/* <Add/> */}
+        <Add/>
 
 
         <div className="icons">

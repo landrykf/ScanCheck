@@ -1,28 +1,34 @@
 import React, { useState } from "react";
 import { GridCard } from "../../views/sections/GridCard";
-import {ResultCard} from './ResultCard';
+import { ResultCard } from "./ResultCard";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
-  const [mangas, setManga] = useState([])
+  const [mangas, setManga] = useState([]);
 
   const onChange = (event) => {
     event.preventDefault();
+
+    console.log(event.target.value);
+
     setQuery(event.target.value);
 
-    fetch(
-      `https://api.jikan.moe/v3/search/manga?q=${query}&order_by=title&sort=asc&limit=20`
-    )
-    .then((res)=>res.json())
-    .then((data)=>{
-        if(!data.errors){
-            setManga(data.results)
+    if (event.target.value.length > 3 && event.target.value !== "") {
+      fetch(
+        `https://api.jikan.moe/v3/search/manga?q=${query}&order_by=title&sort=asc&limit=20`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.errors) {
+            setManga(data.results);
             // console.log(data.results)
-        }else {
+          } else {
             setManga([]);
-        }
-    })
-
+          }
+        });
+    }else{
+      setManga([])
+    }
   };
 
   return (
@@ -39,13 +45,17 @@ export const Add = () => {
           </div>
 
           {mangas?.length > 0 && (
-              <ul className="results">
-                  {mangas.map((manga) => (
-                      <li key={manga.mal_id}>
-                          <ResultCard title={manga?.title} image ={manga?.image_url}  mangaId={manga.mal_id}/>
-                      </li>
-                  ))}
-              </ul>
+            <ul className="results">
+              {mangas.map((manga) => (
+                <li key={manga.mal_id}>
+                  <ResultCard
+                    title={manga?.title}
+                    image={manga?.image_url}
+                    mangaId={manga.mal_id}
+                  />
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       </div>

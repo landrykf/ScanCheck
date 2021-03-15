@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 // import { Header } from "../components/Mangalist/Header";
 import { Readlist } from "../components/Mangalist/Readlist";
 import { Readed } from "../components/Mangalist/Readed";
-import { Add } from "../components/Mangalist/Add"
+import { Add } from "../components/Mangalist/Add";
 
 const Watchlist = () => {
   // const [mangaList, SetMangaList] = useState([]);
@@ -33,13 +33,11 @@ const Watchlist = () => {
       <div>
         <div>
           <Navbar />
-          <h2>UPDATE PAGE</h2>
         </div>
-        <Add/>
+        {/* <Add/> */}
         {/* <Header /> */}
         <Readlist />
         <Readed />
-        
 
         {/* <HomeContent
           HandleSearch={HandleSearch}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Favorite } from "./sections/Favorite";
-import { GridCard } from "./sections/GridCard";
-import { MainImage } from "./sections/MainImage";
+import { Favorite } from "../favorite/Favorite";
+import { GridCard } from "../GridCard";
+import { MainImage } from "../MainImage";
 
 export const MangaDetailPage = (props) => {
   const [Manga, setManga] = useState([]);

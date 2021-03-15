@@ -7,12 +7,12 @@ function Explorer() {
 
   const GetTopManga = async () => {
     let tops = await fetch(
-    //   `https://api.jikan.moe/v3/top/manga/1/bypopularity`
-    `https://api.jikan.moe/v3/genre/manga/3/1`
+      //   `https://api.jikan.moe/v3/top/manga/1/bypopularity`
+      `https://api.jikan.moe/v3/genre/manga/3/1`
     ).then((res) => res.json());
     // SetTopManga(tops.top.slice(0, 5));
     SetTopManga(tops.manga.slice(0, 5));
-    
+
     console.log(tops);
   };
 
@@ -22,7 +22,6 @@ function Explorer() {
 
   return (
     <div>
-      <h2>Page explorer</h2>
       <Navbar />
       <div className="movie-grid">
         <Top topManga={topManga} />
