@@ -5,6 +5,7 @@ import { GridCard } from "./sections/GridCard";
 import { MainImage } from "./sections/MainImage";
 
 export const MangaDetailPage = (props) => {
+  // console.log(props);
   const [Manga, setManga] = useState([]);
   const [crews, setCrews] = useState([]);
   const mangaId = props.match.params.mangaId;

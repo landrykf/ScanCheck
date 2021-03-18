@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Navbar from "../../Navbar";
 import { Favorite } from "../favorite/Favorite";
 import { GridCard } from "../GridCard";
 import { MainImage } from "../MainImage";
 
 export const MangaDetailPage = (props) => {
+  console.log(props);
   const [Manga, setManga] = useState([]);
   const [crews, setCrews] = useState([]);
   const mangaId = props.match.params.mangaId;
@@ -23,6 +25,7 @@ export const MangaDetailPage = (props) => {
 
   return (
     <div>
+      {/* <Navbar/> */}
       {/* Favorite */}
 
       <Favorite

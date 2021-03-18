@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema(
             type: String,
             default:"../frontend/public/favicon.ico"
         },
+        banner: {
+            type: String,
+            default: "../frontend/public/favicon.ico"
+        },
+
         bio : {
             type: String,
             max: 1024,

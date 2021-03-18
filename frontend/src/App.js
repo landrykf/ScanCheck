@@ -8,7 +8,7 @@ import { getUser } from './actions/user.actions';
 // import { getUsers } from './actions/users.actions';
 
 // part 2
-import './styles/App.css'
+// import './styles/App.css'
 import './lib/font-awesome/css/all.min.css'
 
 function App() {

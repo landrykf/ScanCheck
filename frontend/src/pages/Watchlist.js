@@ -34,7 +34,7 @@ const Watchlist = () => {
         <div>
           <Navbar />
         </div>
-        {/* <Add/> */}
+        <Add/>
         {/* <Header /> */}
         <Readlist />
         <Readed />

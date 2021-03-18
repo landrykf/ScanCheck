@@ -5,6 +5,7 @@ import {useState} from "react"
 import { ProfilBody } from "./ProfilBody";
 import { ProfilFollowers } from "./ProfilFollowers";
 import { ProfilFollowings } from "./ProfilFollowings";
+import { UploadBanner } from "./UploadBanner";
 
 
 
@@ -38,6 +39,10 @@ export const ProfilHeader = (props) => {
         <h2> {userData.username}</h2>
       </div>
       <div className="profil-nav">
+        <div className="banner">
+          <img src={userData.banner} alt="banner pic"/>
+          <UploadBanner />
+        </div>
         <div className="avatar">
           <img src={userData.picture} alt="profil pic" />
           <UploadImg />

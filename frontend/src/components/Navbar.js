@@ -26,7 +26,7 @@ function Navbar() {
             <span>Scancheck</span>
           </NavLink>
 
-        <Add/>
+        {/* <Add/> */}
 
 
         <div className="icons">

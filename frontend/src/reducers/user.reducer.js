@@ -5,6 +5,7 @@ import {
   UPDATE_BIO,
   UPDATE_INFO,
   UPLOAD_PICTURE,
+  UPLOAD_BANNER,
 } from "../actions/user.actions";
 
 const initialState = {};
@@ -33,6 +34,13 @@ export default function userReducer(state = initialState, action) {
         ...state,
         picture: action.payload,
       };
+
+      case UPLOAD_BANNER:
+        return {
+          ...state,
+          banner: action.payload,
+        };
+        
     case FOLLOW_USER:
       return {
         ...state,

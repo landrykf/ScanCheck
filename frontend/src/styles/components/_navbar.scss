@@ -1,6 +1,6 @@
 .nav-container {
-    position: fixed;
-    width: 15%;
+      width: 13%;
+      margin-right: 1%;
 
     a {
         text-decoration: none;
@@ -17,9 +17,9 @@
     .icons {
       
       // position: fixed;
-      z-index: 10;
-      width: 200px;
-      top: 28px;
+      // z-index: 10;
+      // width: 200px;
+      // top: 28px;
         
 
   
@@ -32,7 +32,7 @@
         left: 10px;
         width: 100%;
         height: 100%;
-        margin-top: 30px;
+        // margin-top: 30px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

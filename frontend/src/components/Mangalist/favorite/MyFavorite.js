@@ -33,12 +33,11 @@ export const MyFavorite = () => {
 
 
     return (
-        <div>
+        <div className="favorite">
    
         {FavoritedManga?.map((manga, index) => {
           return (
             <React.Fragment key={index}>
-                {/* <h5>{ console.log(manga) }</h5> */}
 
                 <GridCard title = {manga.mangaTitle} image ={manga.mangaImage}  mangaId={manga.mangaId}/>
 

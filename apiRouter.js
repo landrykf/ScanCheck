@@ -30,6 +30,7 @@ exports.router = (function () {
 //     .post(uploadController.uploadProfil);
 
 apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadProfil);
+apiRouter.post("/user/uploadbanner",  upload.single("file"), uploadController.uploadBanner)
 
   //Follow Unfollow
   apiRouter.route("/user/follow/:id").patch(suscribeController.follow);

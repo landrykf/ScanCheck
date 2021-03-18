@@ -4,6 +4,7 @@ export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
 export const UPDATE_INFO = "UPDATE_INFO";
 export const UPLOAD_PICTURE = "UPLOAD_PICTURE";
+export const UPLOAD_BANNER = "UPLOAD_BANNER"
 export const FOLLOW_USER = "FOLLOW_USER";
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 
@@ -81,6 +82,21 @@ export const uploadPicture = (data, id) => {
           .get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
           .then((res) => {
             dispatch({type : UPLOAD_PICTURE, payload: res.data.picture})
+          })
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const uploadBanner= (data, id) => {
+  return (dispatch) => {
+    return axios
+      .post(`${process.env.REACT_APP_API_URL}api/user/uploadbanner`, data)
+      .then((res) => {
+        return axios
+          .get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
+          .then((res) => {
+            dispatch({type : UPLOAD_BANNER, payload: res.data.banner})
           })
       })
       .catch((err) => console.log(err));

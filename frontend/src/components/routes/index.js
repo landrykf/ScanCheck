@@ -17,7 +17,7 @@ import Explorer from "../../pages/Explorer";
 import MoreInfo from "../../pages/MoreInfo";
 import { MangaView } from "../CreateManga/MangaView";
 import { LandingPage } from "../../views/LandingPage";
-import { MangaDetailPage } from "../../views/MangaDetailPage";
+import { MangaDetailPage } from "../Mangalist/mangaDetails/MangaDetailPage";
 import { MyFavorite } from "../../views/MyFavorite"
 const index = () => {
   return (

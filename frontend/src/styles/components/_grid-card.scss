@@ -1,0 +1,50 @@
+.favorite {
+    padding: 0;
+    margin-left: 250px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(7, 0fr);
+  
+    li {
+      list-style: none;
+    }
+  
+    .grid-card {
+      display: flex;
+      margin-bottom: 20px;
+  
+      .poster-wrapper {
+        a {
+          color: #444;
+          display: inline-block;
+          overflow: hidden;
+          vertical-align: super;
+          text-decoration: none;
+        }
+        .info {
+          .header {
+            h5 {
+              margin: 7px 0 2px;
+              font-size: 11px;
+              color: #444;
+              /* font-family: ProximaNovaSB; */
+              height: 32px;
+              overflow: hidden;
+              /* word-break: break-all; */
+              width: 150px;
+            }
+          }
+        }
+        img,
+        .filler-poster {
+            width: 130px;
+            background-color: #dbdada;
+            border-radius: 5px;
+            margin-right: 15px;
+            display: block;
+            color: transparent;
+        }
+      }
+    }
+  }
+  
