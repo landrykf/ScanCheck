@@ -16,7 +16,6 @@ const Profil = () => {
         </div>
       ) : (
         <div className="log-container">
-          <h1>Page de profil</h1>
           <Log signin={true} signup={false} />
         </div>
       )}

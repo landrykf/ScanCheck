@@ -11,7 +11,7 @@ function Header(){
         <header>
             <h1>SCAN CHECK</h1>
             <h1>le meilleur site de suivi de scan</h1>
-        <div>
+        <div id="connexion-link">
           <NavLink exact to="/profil">
             <span>
               Mon profil <FontAwesomeIcon icon={"sign-in-alt"} />
