@@ -70,7 +70,7 @@ export const Favorite = (props) => {
   }, [variable, Favorited]);
 
   return (
-    <div>
+    <div className="fav-button">
       <button onClick={onClickFavorite}>
         {!Favorited ? "Ajouter aux Favoris" : "Supprimer des Favoris"}
       </button>

@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckSquare,
@@ -6,20 +6,18 @@ import {
   faSignInAlt,
 } from "@fortawesome/fontawesome-free-solid";
 
-function Header(){
-    return (
-        <header>
-            <h1>SCAN CHECK</h1>
-            <h1>le meilleur site de suivi de scan</h1>
-        <div id="connexion-link">
-          <NavLink exact to="/profil">
-            <span>
-              Mon profil <FontAwesomeIcon icon={"sign-in-alt"} />
-            </span>
-          </NavLink>
-        </div>
-        </header>
-    )
+function Header() {
+  return (
+    <div className="head">
+      <div id="connexion-link">
+        <NavLink exact to="/profil">
+          <span>
+            Mon profil <FontAwesomeIcon icon={"sign-in-alt"} />
+          </span>
+        </NavLink>
+      </div>
+    </div>
+  );
 }
 
-export default Header
+export default Header;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Computer } from "../components/Home/Computer";
 import Header from "../components/jikan/Header";
 import Sidebar from "../components/jikan/Sidebar";
 
@@ -20,10 +21,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div id="home">
+      <Header />
+      <header>
+        <div className="leftPart">
+          <h1>SCAN CHECK</h1>
+          <h1>le meilleur site de suivi de scan</h1>
+        </div>
+        <Computer />
+      </header>
       {!Loading ? (
         <div>
-          <Header />
           <div className="content-wrap">
             <Sidebar topManga={topManga} />
           </div>

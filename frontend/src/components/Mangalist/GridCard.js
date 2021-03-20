@@ -2,14 +2,14 @@ import React from 'react';
 
 
 export const GridCard = (props) => {
-    if(props.character){
-        return(
-            <div className="character">
-                <img src={props.image} alt="pics" />
+    // if(props.character){
+    //     return(
+    //         <div className="character">
+    //             <img src={props.image} alt="pics" />
 
-            </div>
-        )
-    }else{
+    //         </div>
+    //     )
+    // }else{
 
         return (
             <div className="grid-card">
@@ -25,5 +25,5 @@ export const GridCard = (props) => {
             </div>
           </div>
         )
-    }
+    // }
 }

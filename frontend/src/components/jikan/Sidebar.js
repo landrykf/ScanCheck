@@ -19,7 +19,7 @@ function Sidebar({ topManga }) {
 
         <Swiper
           spaceBetween={10}
-          slidesPerView={3}
+          slidesPerView={4}
           navigation
           pagination={{ clickable: true }}
           onSwiper={(swiper) => console.log(swiper)}
@@ -28,12 +28,13 @@ function Sidebar({ topManga }) {
             {console.log(topManga)}
           {topManga.map((manga, index) => (
             <SwiperSlide key={manga.mal_id} virtualIndex={index}>
-              <div className="swipe">
+                <a href={`/manga/${manga.mal_id}`}>
+
                 <img src={manga.image_url} alt="pics" />
                 <li key={manga.mal_id} rel="noreferrer">
                   {manga.title}
                 </li>
-              </div>
+                </a>
             </SwiperSlide>
           ))}
         </Swiper>
