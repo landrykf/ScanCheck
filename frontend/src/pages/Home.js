@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/jikan/Header";
 import Sidebar from "../components/jikan/Sidebar";
 import HomeContent from "../components/jikan/HomeContent";
+import { GridCard } from "../components/Mangalist/GridCard";
 
 const Home = () => {
   const [mangaList, SetMangaList] = useState([]);
@@ -16,18 +17,18 @@ const Home = () => {
     SetTopManga(tops.top.slice(0, 5));
   };
 
-  const HandleSearch = (event) => {
-    event.preventDefault();
-    FetchManga(search);
-  };
+  // const HandleSearch = (event) => {
+  //   event.preventDefault();
+  //   FetchManga(search);
+  // };
 
-  const FetchManga = async (query) => {
-    const searchReq = await fetch(
-      `https://api.jikan.moe/v3/search/manga?q=${query}&order_by=title&sort=asc&limit=20`
-    ).then((res) => res.json());
+  // const FetchManga = async (query) => {
+  //   const searchReq = await fetch(
+  //     `https://api.jikan.moe/v3/search/manga?q=${query}&order_by=title&sort=asc&limit=20`
+  //   ).then((res) => res.json());
 
-    SetMangaList(searchReq.results);
-  };
+  //   SetMangaList(searchReq.results);
+  // };
 
   useEffect(() => {
     GetTopManga();
@@ -39,14 +40,17 @@ const Home = () => {
       <div className="content-wrap">
 
         <Sidebar topManga={topManga} />
+        {console.log(topManga)}
+        <GridCard title = {topManga.title} image ={topManga.image_url}  mangaId={topManga.mal_id}/>
+
         {/* {console.log(topManga)} */}
 
-        <HomeContent
+        {/* <HomeContent
           HandleSearch={HandleSearch}
           search={search}
           SetSearch={SetSearch}
           mangaList={mangaList}
-        />
+        /> */}
       </div>
     </div>
   );

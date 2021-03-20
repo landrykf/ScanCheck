@@ -12,7 +12,7 @@ export const GridCard = (props) => {
     }else{
 
         return (
-            <div class="grid-card">
+            <div className="grid-card">
             <div className="poster-wrapper">
               <a href={`/manga/${props.mangaId}`}>
                 <img src={props.image} alt="pics" />

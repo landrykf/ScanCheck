@@ -26,8 +26,8 @@ export const Add = () => {
             setManga([]);
           }
         });
-    }else{
-      setManga([])
+    } else {
+      setManga([]);
     }
   };
 
@@ -37,6 +37,7 @@ export const Add = () => {
         <div className="add-content">
           <div className="input-wrapper">
             <input
+              id="search"
               type="search"
               placeholder="Rechercher un manga"
               value={query}
