@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { GridCard } from "../../views/sections/GridCard";
 import { ResultCard } from "./ResultCard";
 
 export const Add = () => {
