@@ -8,11 +8,10 @@ function Top({ topManga }) {
           <h3>Cars Manga</h3>
           {topManga.map((manga) => (
             <div key={manga.mal_id} className="top-card">
-                <div className="top-card">
-              <img src={manga.image_url} alt="" />
-              {manga.title}
-
-                </div>
+              <div className="top-card">
+                <img src={manga.image_url} alt="" />
+                <div>{manga.title}</div>
+              </div>
             </div>
           ))}
         </div>
