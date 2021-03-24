@@ -7,12 +7,13 @@ const mangaController = require("./routes/mangaController");
 const likeController = require("./routes/likeController");
 const commentController = require("./routes/commentController");
 const uploadController = require("./routes/uploadController");
+const comment = require('./routes/comment')
 const multer = require("multer");
 const upload = multer();
 
 exports.router = (function () {
   let apiRouter = express.Router();
- 
+
   //Auth
   apiRouter.route("/user/register").post(authController.signUp);
   apiRouter.route("/user/login").post(authController.signIn);
@@ -24,22 +25,28 @@ exports.router = (function () {
   apiRouter.route("/user/:id").put(userController.updateUser);
   apiRouter.route("/user/:id").delete(userController.deleteUser);
 
-  //Upload 
-//   apiRouter
-//     .route("/user/upload", upload.single("file"))
-//     .post(uploadController.uploadProfil);
+  //Upload
+  //   apiRouter
+  //     .route("/user/upload", upload.single("file"))
+  //     .post(uploadController.uploadProfil);
 
-apiRouter.post("/user/upload", upload.single("file"), uploadController.uploadProfil);
-apiRouter.post("/user/uploadbanner",  upload.single("file"), uploadController.uploadBanner)
+  apiRouter.post(
+    "/user/upload",
+    upload.single("file"),
+    uploadController.uploadProfil
+  );
+  apiRouter.post(
+    "/user/uploadbanner",
+    upload.single("file"),
+    uploadController.uploadBanner
+  );
 
   //Follow Unfollow
   apiRouter.route("/user/follow/:id").patch(suscribeController.follow);
   apiRouter.route("/user/unfollow/:id").patch(suscribeController.unfollow);
 
-
-//-----------------------------------
-  // Favorite 
-
+  //-----------------------------------
+  // Favorite
 
   apiRouter.route("/user/favoriteNumber").post(favoriteController.number);
   apiRouter.route("/user/favorited").post(favoriteController.favorited);
@@ -47,7 +54,9 @@ apiRouter.post("/user/uploadbanner",  upload.single("file"), uploadController.up
   apiRouter
     .route("/user/removefromfavorite")
     .post(favoriteController.removeFromFavorite);
-  apiRouter.route("/user/getFavoritedManga").post(favoriteController.getFavoredManga)
+  apiRouter
+    .route("/user/getFavoritedManga")
+    .post(favoriteController.getFavoredManga);
 
   //Manga
   apiRouter.route("/manga").get(mangaController.getManga);
@@ -60,15 +69,24 @@ apiRouter.post("/user/uploadbanner",  upload.single("file"), uploadController.up
   apiRouter.route("/manga/unlike-manga/:id").patch(likeController.unlikeManga);
 
   //comments
-  apiRouter
-    .route("/manga/manga-comment/:id")
-    .patch(commentController.mangaComment);
-  apiRouter
-    .route("/manga/edit-manga-comment/:id")
-    .patch(commentController.editMangaComment);
-  apiRouter
-    .route("/manga/delete-manga-comment/:id")
-    .patch(commentController.deleteMangaComment);
+  // apiRouter
+  //   .route("/manga/manga-comment/:id")
+  //   .patch(commentController.mangaComment);
+  // apiRouter
+  //   .route("/manga/edit-manga-comment/:id")
+  //   .patch(commentController.editMangaComment);
+  // apiRouter
+  //   .route("/manga/delete-manga-comment/:id")
+  //   .patch(commentController.deleteMangaComment);
+
+  apiRouter.route("/manga/save-comment").post(comment.saveComment);
+  apiRouter.route("/manga/get-comments").post(comment.getComments)
+  // apiRouter
+  //   .route("/manga/edit-manga-comment/:id")
+  //   .patch(commentController.editMangaComment);
+  // apiRouter
+  //   .route("/manga/delete-manga-comment/:id")
+  //   .patch(commentController.deleteMangaComment);
 
   return apiRouter;
 })();

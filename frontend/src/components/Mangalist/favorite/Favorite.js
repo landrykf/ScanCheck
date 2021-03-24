@@ -58,11 +58,9 @@ export const Favorite = (props) => {
     });
 
     axios.post("/api/user/favorited", variable).then((response) => {
-        console.log(variable);
       if (response.data.success) {
         // console.log(response);
         setFavorited(!response.data.suscribed);
-        console.log(Favorited);
       } else {
         alert("Failed to get Favorite");
       }

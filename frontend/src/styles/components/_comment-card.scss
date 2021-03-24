@@ -1,0 +1,78 @@
+.comments-container {
+  margin-top: 50px;
+  position: relative;
+  .comment {
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-width: 1px 1px 2px;
+
+    .top {
+      padding: 15px 0;
+      position: relative;
+      display: flex;
+
+      .author {
+        display: block;
+        // float: left;
+        text-align: center;
+        width: 80px;
+        position: relative;
+
+        img {
+          max-width: 38px;
+          min-height: 38px;
+          min-width: 38px;
+          display: block;
+          margin: 0 auto;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .remove-zone {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 12px;
+        z-index: 10;
+
+        span {
+          font-size: 16px;
+          color: #ddd;
+          padding: 5px;
+          display: block;
+        }
+      }
+
+      .holder {
+        position: relative;
+        // margin-left: 80px;
+        // color: #fff;
+        border-radius: 4px;
+
+        .author-label {
+          h3 {
+            color: #353535;
+            font-size: 15px;
+            max-width: 350px;
+            border-radius: 4px;
+            // font-family: ProximaNovaSB;
+          }
+        }
+
+      }
+    }
+    blockquote {
+        border-left: none;
+        margin: 0;
+        padding: 0 15px 0 0;
+        padding: 0px 20px;
+        margin: 0 0 20px;
+        font-size: 17.5px;
+        border-left: 100px solid #fff;
+      }
+  }
+}

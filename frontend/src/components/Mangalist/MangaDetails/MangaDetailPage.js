@@ -13,17 +13,35 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 import { CrewsCard } from "./CrewsCard";
+import { Comments } from "../../Comments/Comments";
+import axios from "axios";
 
 SwiperCore.use([Virtual, Navigation]);
 
 export const MangaDetailPage = (props) => {
-  console.log(props);
   const [Manga, setManga] = useState([]);
   const [crews, setCrews] = useState([]);
+
+  const [commentList, setCommentList] = useState([]);
   const [Loading, setLoading] = useState(true);
   const mangaId = props.match.params.mangaId;
   const userData = useSelector((state) => state.userReducer);
-  //   console.log(userData);
+
+  const mangaVariable = {
+    mangaId: mangaId,
+  };
+  
+  useEffect(() => {
+    axios.post("/api/manga/get-comments", mangaVariable).then((response) => {
+      console.log(response);
+      if (response.data.success) {
+        // console.log("response.data.comments", response.data.comments);
+        setCommentList(response.data.comments);
+      } else {
+        console.log("Failed to get comments Info");
+      }
+    });
+  }, []);
 
   useEffect(() => {
     fetch(`https://api.jikan.moe/v3/manga/${mangaId}`)
@@ -38,10 +56,15 @@ export const MangaDetailPage = (props) => {
     }, 1000);
   }, [mangaId]);
 
+  const updateComment = (newComment) => {
+    setCommentList(commentList.concat(newComment));
+    // console.log(commentList);
+  };
+
   return (
     <div>
       <Navbar />
-      <div class="detail-container">
+      <div className="detail-container">
         <MainImage image={Manga?.image_url} title={Manga?.title} />
         {!Loading ? (
           <div>
@@ -65,8 +88,8 @@ export const MangaDetailPage = (props) => {
               slidesPerView={3}
               navigation
               pagination={{ clickable: true }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
+              // onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log("slide change")}
               className="crew-case"
             >
               {crews?.map((crew, index) => {
@@ -87,6 +110,13 @@ export const MangaDetailPage = (props) => {
         ) : (
           <div>Chargement...</div>
         )}
+
+        <Comments
+          commentList={commentList}
+          mangaId={mangaId}
+          mangaTitle = {Manga.title}
+          refreshFunction={updateComment}
+        />
       </div>
     </div>
   );
