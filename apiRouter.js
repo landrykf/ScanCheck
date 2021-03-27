@@ -7,8 +7,9 @@ const mangaController = require("./routes/mangaController");
 const likeController = require("./routes/likeController");
 const commentController = require("./routes/commentController");
 const uploadController = require("./routes/uploadController");
-const comment = require('./routes/comment')
+const comment = require("./routes/comment");
 const multer = require("multer");
+const like = require("./routes/like");
 const upload = multer();
 
 exports.router = (function () {
@@ -65,8 +66,14 @@ exports.router = (function () {
   apiRouter.route("/manga/:id").delete(mangaController.deleteManga);
 
   //Like Unlike
-  apiRouter.route("/manga/like-manga/:id").patch(likeController.likeManga);
-  apiRouter.route("/manga/unlike-manga/:id").patch(likeController.unlikeManga);
+  apiRouter.route("/manga/getLikes").post(like.getLikes);
+  apiRouter.route("/manga/upLike").post(like.upLike);
+  apiRouter.route("/manga/unLike").post(like.unLike);
+
+
+
+  // apiRouter.route("/manga/like-manga/:id").patch(likeController.likeManga);
+  // apiRouter.route("/manga/unlike-manga/:id").patch(likeController.unlikeManga);
 
   //comments
   // apiRouter
@@ -80,7 +87,7 @@ exports.router = (function () {
   //   .patch(commentController.deleteMangaComment);
 
   apiRouter.route("/manga/save-comment").post(comment.saveComment);
-  apiRouter.route("/manga/get-comments").post(comment.getComments)
+  apiRouter.route("/manga/get-comments").post(comment.getComments);
   // apiRouter
   //   .route("/manga/edit-manga-comment/:id")
   //   .patch(commentController.editMangaComment);

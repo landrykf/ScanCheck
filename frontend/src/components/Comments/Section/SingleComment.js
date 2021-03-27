@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { LikeDislikes } from "../../LikeDislikes/LikeDislikes";
 
 export const SingleComment = (props) => {
   const user = useSelector((state) => state.userReducer);
@@ -42,7 +43,7 @@ export const SingleComment = (props) => {
 
   return (
     <>
-      <article className="comment">
+      <>
         <div className="top">
           <div className="author">
             <img src={"." + props.comment.writer.picture} alt="writer pics" />
@@ -61,8 +62,9 @@ export const SingleComment = (props) => {
         </div>
 
         <blockquote className="original">{props.comment.content}</blockquote>
+        <LikeDislikes commentId = {props.comment._id} userId ={user._id} />
         <span onClick={handleOpenReply}> Répondre </span>
-      </article>
+      </>
 
       {openReply && (
         <form onSubmit={onSubmit}>

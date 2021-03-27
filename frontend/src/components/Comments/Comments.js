@@ -34,25 +34,28 @@ export const Comments = (props) => {
   return (
     <div className="comments-container">
       <h3>partagez votre avis sur {props.mangaTitle}</h3>
-      
-      {props.commentList && props.commentList.map((comment) => (
-            
-          (!comment.responseTo && 
-            <React.Fragment>
-              <SingleComment
-                comment={comment}
-                mangaId={props.mangaId}
-                refreshFunction={props.refreshFunction}
-              />
-              <ReplyComment
-                commentList={props.commentList}
-                mangaId={props.mangaId}
-                parentCommentId={comment._id}
-                refreshFunction={props.refreshFunction}
-              />
-            </React.Fragment>
-          )
-        ))}
+
+      {props.commentList &&
+        props.commentList.map(
+          (comment) =>
+            !comment.responseTo && (
+              <article className="comment">
+                <React.Fragment>
+                  <SingleComment
+                    comment={comment}
+                    mangaId={props.mangaId}
+                    refreshFunction={props.refreshFunction}
+                  />
+                  <ReplyComment
+                    commentList={props.commentList}
+                    mangaId={props.mangaId}
+                    parentCommentId={comment._id}
+                    refreshFunction={props.refreshFunction}
+                  />
+                </React.Fragment>
+              </article>
+            )
+        )}
 
       {props.commentList && props.commentList.length === 0 && (
         <h2> Soyez le premier à partager votre avis sur {props.mangaTitle}</h2>

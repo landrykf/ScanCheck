@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { LikeDislikes } from "../../LikeDislikes/LikeDislikes";
 import { SingleComment } from "./SingleComment";
 
 export const ReplyComment = (props) => {
+  const user = useSelector((state) => state.userReducer);
+
   const [childCommentNumber, setChildCommentNumber] = useState(0);
   const [openReplyComment, setOpenReplyComment] = useState(false);
-  
+
   useEffect(() => {
     let commentNumber = 0;
     props.commentList.map((comment) => {
-        
       if (comment.responseTo === props.parentCommentId) {
         commentNumber++;
       }
@@ -16,43 +19,41 @@ export const ReplyComment = (props) => {
     setChildCommentNumber(commentNumber);
   }, [props.commentList, props.parentCommentId]);
 
-  let renderReplyComment = (parentCommentId) => {
-    props.commentList.map((comment) => (
-
-        <React.Fragment>
-            
-            {comment.responseTo === parentCommentId && (
-              <div>
-              {console.log(parentCommentId)}
-  
-                <SingleComment
-                  comment={comment}
-                  mangaId={props.mangaId}
-                  refreshFunction={props.refreshFunction}
-                />
-                <ReplyComment
-                  commentList={props.commentList}
-                  mangaId={props.mangaId}
-                  parentCommentId={comment._id}
-                  refreshFunction={props.refreshFunction}
-                />
-              </div>
-            )}
-        </React.Fragment>
-
-    ));
-  };
-
   const handleChange = () => {
     setOpenReplyComment(!openReplyComment);
   };
 
   return (
-    <div>
+    <div className="response-container">
       {childCommentNumber > 0 && (
         <p onClick={handleChange}>Voir {childCommentNumber} réponse(s)</p>
       )}
-      {openReplyComment && renderReplyComment(props.parentCommentId)}
+      {openReplyComment &&
+        props.commentList.map(
+          (comment) =>
+            comment.responseTo === props.parentCommentId && (
+              <div className="response-to-comment">
+                <div className="top">
+                  <div className="author">
+                    <img src={"." + comment.writer.picture} alt="writer pics" />
+                  </div>
+
+                  <div className="remove-zone">
+                    <span>X</span>
+                  </div>
+                  <div className="holder">
+                    <div className="author-label">
+                      <h3>{comment.writer.username}</h3>
+                      <p>{comment.createdAt}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p>{comment.content}</p>
+                {/* <LikeDislikes commentId={props.comment._id} userId={user._id} /> */}
+              </div>
+            )
+        )}
     </div>
   );
 };
