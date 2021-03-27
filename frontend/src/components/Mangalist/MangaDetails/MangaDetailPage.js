@@ -30,7 +30,7 @@ export const MangaDetailPage = (props) => {
   const mangaVariable = {
     mangaId: mangaId,
   };
-  
+
   useEffect(() => {
     axios.post("/api/manga/get-comments", mangaVariable).then((response) => {
       console.log(response);
@@ -114,7 +114,7 @@ export const MangaDetailPage = (props) => {
         <Comments
           commentList={commentList}
           mangaId={mangaId}
-          mangaTitle = {Manga.title}
+          mangaTitle={Manga.title}
           refreshFunction={updateComment}
         />
       </div>

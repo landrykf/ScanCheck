@@ -4,10 +4,11 @@ import { LikeDislikes } from "../../LikeDislikes/LikeDislikes";
 import { SingleComment } from "./SingleComment";
 
 export const ReplyComment = (props) => {
+  console.log(props);
   const user = useSelector((state) => state.userReducer);
 
   const [childCommentNumber, setChildCommentNumber] = useState(0);
-  const [openReplyComment, setOpenReplyComment] = useState(false);
+  const [openReplyComment, setOpenReplyComment] = useState(true);
 
   useEffect(() => {
     let commentNumber = 0;
@@ -50,7 +51,7 @@ export const ReplyComment = (props) => {
                 </div>
 
                 <p>{comment.content}</p>
-                {/* <LikeDislikes commentId={props.comment._id} userId={user._id} /> */}
+                <LikeDislikes commentId={comment._id} userId={comment.writer._id} />
               </div>
             )
         )}
