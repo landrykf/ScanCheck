@@ -1,6 +1,5 @@
 const FavoriteModel = require("../models/favorite");
 const ObjectID = require("mongoose").Types.ObjectId;
-const UserModel = require("../models/user")
 
 module.exports = {
   number: (req, res) => {
@@ -26,12 +25,7 @@ module.exports = {
     });
   },
 
-  addToFavorite: async (req, res) => {
-    // try {
-      
-    // } catch (error) {
-      
-    // }
+  addToFavorite: (req, res) => {
 
     const favorite = new FavoriteModel(req.body);
     // console.log(req.body);
@@ -39,19 +33,6 @@ module.exports = {
       if (err) return res.json({ success: false, err });
       return res.status(200).json({ success: true });
     });
-
-    // await UserModel.findByIdAndUpdate(
-    //   // console.log(req.body),
-    //   req.body.userFrom,
-    //   {
-    //     $addToSet: { likes: req.body.mangaId },
-    //   },
-    //   { new: true },
-    //   (err, docs) => {
-    //     if (!err) res.send(docs);
-    //     else return res.status(400).send("erreur2 " + err);
-    //   }
-    // );
   },
 
   removeFromFavorite: (req, res) => {

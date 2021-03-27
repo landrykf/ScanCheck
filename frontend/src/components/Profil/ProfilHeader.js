@@ -14,6 +14,7 @@ export const ProfilHeader = (props) => {
   const [followingsModal, setFollowingsModal] = useState(props.followings);
   const [bodyModal, setBodyModal] = useState(props.body);
 
+  console.log(props);
   let handleModal = (event) => {
     if (event.target.id === "followings") {
       setFollowersModal(false);
@@ -32,18 +33,16 @@ export const ProfilHeader = (props) => {
 
   return (
     <div className="profil-head-container">
-      <div className="bannere">
-        {/* <h2> {userData.username}</h2> */}
-      </div>
+      <div className="bannere">{/* <h2> {userData.username}</h2> */}</div>
       <div className="profil-nav">
         <div className="banner">
-        <Popup
+          <Popup
             trigger={<img src={userData.banner} alt="banner pic" />}
             position={["bottom center", "bottom right", "bottom left"]}
             closeOnDocumentClick
           >
-          <UploadBanner />
-        </Popup>
+            <UploadBanner />
+          </Popup>
         </div>
         <div className="avatar">
           <span className="avatar-upload-label">modifier</span>
