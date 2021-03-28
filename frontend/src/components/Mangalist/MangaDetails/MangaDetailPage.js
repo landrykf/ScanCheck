@@ -63,11 +63,11 @@ export const MangaDetailPage = (props) => {
 
   return (
     <div>
-      <Navbar />
       <div className="detail-container">
         <MainImage image={Manga?.image_url} title={Manga?.title} />
         {!Loading ? (
           <div>
+            <Navbar />
             <Favorite
               userFrom={userData._id}
               mangaId={mangaId}

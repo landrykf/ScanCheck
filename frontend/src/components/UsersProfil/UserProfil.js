@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { MyFavorite } from "../Mangalist/favorite/MyFavorite";
 import { FollowHander } from "../Profil/FollowHander";
 import { ProfilBody } from "../Profil/ProfilBody";
 import { ProfilFollowers } from "../Profil/ProfilFollowers";
 import { ProfilFollowings } from "../Profil/ProfilFollowings";
+import { UserFavorite } from "./UserFavorite";
 
 export const UserProfil = (props) => {
-  console.log(props.user);
+  console.log(props);
   const usersData = useSelector((state) => state.usersReducer);
 
   const [followersModal, setFollowersModal] = useState(props.followers);
   const [followingsModal, setFollowingsModal] = useState(props.followings);
-  const [bodyModal, setBodyModal] = useState(props.body);
+  const [bodyModal, setBodyModal] = useState(props.bodyModal);
 
   let handleModal = (event) => {
     if (event.target.id === "followings") {
@@ -52,7 +54,7 @@ export const UserProfil = (props) => {
           Abonnements
         </li>
       </ul>
-      {bodyModal && <div>Bibliothèque</div>}
+      {bodyModal && <UserFavorite userId = {props.user._id}/>}
       {followersModal && (
         <div className="profil-body-followings">
           <h5>Abonnés : {props.user?.followers?.length}</h5>
@@ -87,7 +89,7 @@ export const UserProfil = (props) => {
                   return (
                     <a href={`/user/${user._id}`}>
                       <li key={user._id}>
-                        <img src={'.'+user.picture} alt="user-pic" />
+                        <img src={"." + user.picture} alt="user-pic" />
                         <h4> {user.username}</h4>
                         <div className="follow-handler"></div>
                       </li>
