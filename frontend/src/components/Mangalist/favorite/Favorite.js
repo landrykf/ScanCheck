@@ -19,7 +19,7 @@ export const Favorite = (props) => {
     mangaTitle: mangaTitle,
     mangaImage: mangaImage,
   };
-// console.log(variable);
+  // console.log(variable);
   const onClickFavorite = () => {
     if (Favorited) {
       //Ajouté
@@ -46,8 +46,6 @@ export const Favorite = (props) => {
   };
 
   useEffect(() => {
-      
- 
     axios.post("/api/user/favoriteNumber", variable).then((response) => {
       if (response.data.success) {
         setFavoriteNumber(response.data.suscribeNumber);

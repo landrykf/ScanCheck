@@ -26,7 +26,8 @@ export const LikeDislikes = (props) => {
         console.log("failed to get likes");
       }
     });
-  });
+  }); 
+  
   const onLike = () => {
     if (likeAction === null) {
       axios.post("/api/manga/upLike", variable).then((response) => {

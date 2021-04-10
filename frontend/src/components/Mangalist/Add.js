@@ -20,7 +20,6 @@ export const Add = () => {
         .then((data) => {
           if (!data.errors) {
             setManga(data.results);
-            // console.log(data.results)
           } else {
             setManga([]);
           }

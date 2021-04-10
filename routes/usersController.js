@@ -3,15 +3,11 @@ const ObjectID = require("mongoose").Types.ObjectId;
 
 module.exports = {
   getAllUser: async (req, res) => {
-    
     try {
       const users = await UserModel.find().select("-password");
       res.status(200).json(users);
-      // console.log(users);
-      
     } catch (error) {
-      res.status(400).json({message:error})
-      // console.log('getAllUser' + error);
+      res.status(400).json({ message: error });
     }
   },
 
@@ -54,10 +50,10 @@ module.exports = {
       return res.status(400).send(`ID inconnu : ` + req.params.id);
 
     try {
-        await UserModel.remove({_id: req.params.id}).exec();
-        res.status(200).json({message: "Suppression éffectuée"})
+      await UserModel.remove({ _id: req.params.id }).exec();
+      res.status(200).json({ message: "Suppression éffectuée" });
     } catch (error) {
-        return res.status(500).json({message : err})
+      return res.status(500).json({ message: err });
     }
-  }
+  },
 };

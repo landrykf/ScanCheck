@@ -88,8 +88,6 @@ export const MangaDetailPage = (props) => {
               slidesPerView={3}
               navigation
               pagination={{ clickable: true }}
-              // onSwiper={(swiper) => console.log(swiper)}
-              // onSlideChange={() => console.log("slide change")}
               className="crew-case"
             >
               {crews?.map((crew, index) => {

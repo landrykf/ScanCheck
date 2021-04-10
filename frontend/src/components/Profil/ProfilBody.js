@@ -8,7 +8,7 @@ export const ProfilBody = () => {
   return (
     <div className="profil-body">
       <Add />
-      <MyFavorite />
+      <MyFavorite  />
 
       {/* <Readlist />
       <Readed /> */}

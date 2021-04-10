@@ -84,10 +84,9 @@ module.exports = {
     //     const foundUser = await UserModel.findOne ({ "email" : req.body.email });
 
     UserModel.findOne({
-      email: email, 
+      email: email,
     })
       .then((userFound) => {
- 
         if (userFound) {
           bcrypt.compare(
             password,

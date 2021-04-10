@@ -10,6 +10,8 @@ import Navbar from "../components/Navbar";
 import { Readlist } from "../components/Mangalist/Readlist";
 import { Readed } from "../components/Mangalist/Readed";
 import { Add } from "../components/Mangalist/Add";
+import { ProfilBody } from "../components/Profil/ProfilBody";
+import { MyFavorite } from "../components/Mangalist/favorite/MyFavorite";
 
 const Watchlist = () => {
   // const [mangaList, SetMangaList] = useState([]);
@@ -34,9 +36,10 @@ const Watchlist = () => {
         <div>
           <Navbar />
         </div>
-        <Add/>
+        <Add />
         {/* <Header /> */}
-        <Readlist />
+        {/* <Readlist /> */}
+        <MyFavorite type="readlist" />
         <Readed />
 
         {/* <HomeContent

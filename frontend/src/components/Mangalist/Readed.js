@@ -1,11 +1,34 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { GlobalContext } from "../../context/GlobalState";
 import { MangaCard } from "./MangaCard";
 
 export const Readed = () => {
-  const { readed } = useContext(GlobalContext);
-  // console.log(readed);
+  const userData = useSelector((state) => state?.userReducer);
+  const [Loading, setLoading] = useState(true);
+  const [readed, setReaded] = useState([]);
 
+  let variables = { userId: userData?._id };
+
+  useEffect(() => {
+    const fetchMangaReaded = async () => {
+      return axios
+        .post("/api/manga/getreads", variables)
+        .then((response) => {
+          console.log(response);
+          if (response.data.success) {
+            setReaded(response.data.reads);
+            setLoading(false);
+          } else {
+            alert("Failed to get readed");
+          }
+        })
+        .catch((err) => console.log(err));
+    };
+
+    fetchMangaReaded();
+  });
   return (
     <div className="movie-page">
       <div className="container">

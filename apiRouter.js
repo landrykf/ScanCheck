@@ -10,6 +10,7 @@ const uploadController = require("./routes/uploadController");
 const comment = require("./routes/comment");
 const multer = require("multer");
 const like = require("./routes/like");
+const read = require("./routes/read");
 const upload = multer();
 
 exports.router = (function () {
@@ -70,7 +71,11 @@ exports.router = (function () {
   apiRouter.route("/manga/upLike").post(like.upLike);
   apiRouter.route("/manga/unLike").post(like.unLike);
 
+  //Readed??
 
+  apiRouter.route("/manga/getReads").post(read.getReads);
+  apiRouter.route("/manga/addToRead").post(read.readed);
+  apiRouter.route("/manga/removeFromReaded").post(read.removeFromReaded);
 
   // apiRouter.route("/manga/like-manga/:id").patch(likeController.likeManga);
   // apiRouter.route("/manga/unlike-manga/:id").patch(likeController.unlikeManga);
