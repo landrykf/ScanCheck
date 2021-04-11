@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { GlobalContext } from "../../context/GlobalState";
+import { ReadCard } from "../Readed/ReadCard";
 import { MangaCard } from "./MangaCard";
 
 export const Readed = () => {
@@ -14,11 +15,12 @@ export const Readed = () => {
   useEffect(() => {
     const fetchMangaReaded = async () => {
       return axios
-        .post("/api/manga/getreads", variables)
+        .post("/api/manga/getReadedManga", variables)
         .then((response) => {
-          console.log(response);
           if (response.data.success) {
-            setReaded(response.data.reads);
+            setReaded(response.data.readed);
+          // console.log(readed);
+
             setLoading(false);
           } else {
             alert("Failed to get readed");
@@ -30,7 +32,7 @@ export const Readed = () => {
     fetchMangaReaded();
   });
   return (
-    <div className="movie-page">
+    <div className="read-page">
       <div className="container">
         <div className="header">
           <h1 className="heading">Mes manga lu</h1>
@@ -39,11 +41,12 @@ export const Readed = () => {
           </span>
         </div>
         {readed.length > 0 ? (
-          <div className="movie-grid">
+          <>
             {readed.map((manga) => (
-              <MangaCard manga={manga} type="readed" key={manga.mal_id} />
+              <ReadCard mangaId={manga.mangaId}/>
+              // <div>{console.log(manga)}oui monsieur</div>
             ))}
-          </div>
+          </>
         ) : (
           <h2 className="no-movies">
             Vous n'avez pas encore ajouté de manga lu

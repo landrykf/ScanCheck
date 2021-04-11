@@ -76,6 +76,7 @@ exports.router = (function () {
   apiRouter.route("/manga/getReads").post(read.getReads);
   apiRouter.route("/manga/addToRead").post(read.readed);
   apiRouter.route("/manga/removeFromReaded").post(read.removeFromReaded);
+  apiRouter.route("/manga/getReadedManga").post(read.getReadedManga);
 
   // apiRouter.route("/manga/like-manga/:id").patch(likeController.likeManga);
   // apiRouter.route("/manga/unlike-manga/:id").patch(likeController.unlikeManga);

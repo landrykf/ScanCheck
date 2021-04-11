@@ -52,7 +52,7 @@ export const Read = (props) => {
           response.data.reads.map((read) => {
 
             if (read.userId === userData._id) {
-              console.log(read);
+              // console.log(read);
               setRead("readed");
             }
           });

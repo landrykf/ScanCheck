@@ -2,6 +2,14 @@ const ReadModel = require("../models/read");
 const ObjectID = require("mongoose").Types.ObjectId;
 
 module.exports = {
+
+  getReadedManga: (req, res) => {
+
+    ReadModel.find({ userId: req.body.userId }).exec((err, readed) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).json({ success: true, readed });
+    })
+  },
   getReads: (req, res) => {
     let variable = { mangaId: req.body.mangaId };
 
