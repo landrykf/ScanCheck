@@ -1,9 +1,16 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { ResultCard } from "./ResultCard";
+import { UserCard } from "./UserCard";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
   const [mangas, setManga] = useState([]);
+  // const usersData = useSelector((state) => state.usersReducer);
+
+  const [usersData, setUsersData] = useState([])
+  const [users , setUsers] = useState([]);
 
   const onChange = (event) => {
     event.preventDefault();
@@ -19,16 +26,30 @@ export const Add = () => {
         .then((res) => res.json())
         .then((data) => {
           if (!data.errors) {
+            // console.log(data.results);
             setManga(data.results);
           } else {
             setManga([]);
           }
         });
-    } else {
+
+        axios.get(`/api/users`).then(response => {
+          setUsersData(response.data)
+          // console.log(users);
+        })
+
+        const userRes = usersData.filter(user => {
+          return user.username.toLowerCase().includes(query.toLowerCase());
+        })
+        console.log(userRes);
+        setUsers(userRes)
+
+    } else { 
       setManga([]);
+      setUsers([])
     }
   };
-
+ 
   return (
     <div className="add-page">
       <div className="container">
@@ -56,7 +77,20 @@ export const Add = () => {
               ))}
             </ul>
           )}
+          {users.length > 0 &&(
+            <div className = "user-search-result">
+              {users.map(user => (
+                <UserCard
+                 username = {user.username}
+                 image = {user.picture}
+                 userId = {user._id}
+                 />
+              ))}
+            </div>
+          )}
         </div>
+
+        <div></div>
       </div>
     </div>
   );

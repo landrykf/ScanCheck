@@ -40,7 +40,7 @@ export const UserProfil = (props) => {
         <div className="avatar">
           <span className="avatar-upload-label">modifier</span>
 
-          <img src={"." + props.user.picture} alt="profil pic" />
+          <img src={props.user.picture} alt="profil pic" />
         </div>
       </div>
       <ul className="nav-tabs">

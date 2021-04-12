@@ -19,7 +19,7 @@ export const Readed = () => {
         .then((response) => {
           if (response.data.success) {
             setReaded(response.data.readed);
-          // console.log(readed);
+            // console.log(readed);
 
             setLoading(false);
           } else {
@@ -33,17 +33,16 @@ export const Readed = () => {
   });
   return (
     <div className="read-page">
+      <h1 className="heading">Mes manga lu</h1>
+      {readed.length} {readed.length === 1 ? "Manga" : "Mangas"}
       <div className="container">
-        <div className="header">
-          <h1 className="heading">Mes manga lu</h1>
-          <span className="count-pill">
-            {readed.length} {readed.length === 1 ? "Manga" : "Mangas"}
-          </span>
-        </div>
+        {/* <div className="header">
+          <span className="count-pill"></span>
+        </div> */}
         {readed.length > 0 ? (
           <>
             {readed.map((manga) => (
-              <ReadCard mangaId={manga.mangaId}/>
+              <ReadCard mangaId={manga.mangaId} />
               // <div>{console.log(manga)}oui monsieur</div>
             ))}
           </>

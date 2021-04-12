@@ -97,3 +97,21 @@
     }
   }
 }
+
+.user-search-result{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-decoration: none;
+
+  a{
+    color: #444;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: super;
+    text-decoration: none;
+  }
+
+  img{
+    width: 100%;
+  }
+}
