@@ -20,7 +20,7 @@ export const ReadCard = (props) => {
         ).then((res) => res.json());
         SetManga(manga)
       };
-      console.log(manga);
+      // console.log(manga);
 
       useEffect(() => {
         GetManga();

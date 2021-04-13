@@ -44,10 +44,15 @@ function Explorer() {
     <div>
       <Navbar />
       <div className="movie-grid">
+        <h2>Sport</h2>
         <Top topManga={sport} />
+        <h2>Music</h2>
         <Top topManga={music} />
+        <h2>Kids</h2>
         <Top topManga={kids} />
+        <h2>Top</h2>
         <Top topManga={topManga} />
+        <h2>Demons</h2>
         <Top topManga={demons} />
       </div>
     </div>

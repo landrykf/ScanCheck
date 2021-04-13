@@ -16,7 +16,9 @@ export const MyFavorite = (props) => {
         .then((response) => {
           if (response.data.success) {
             setFavoritedManga(response.data.favorites);
-            setLoading(false);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
           } else {
             alert("Failed to get favorited");
           }
@@ -31,14 +33,20 @@ export const MyFavorite = (props) => {
     <div className="favorite">
       {FavoritedManga?.map((manga, index) => {
         return (
-          <React.Fragment key={index}>
-            <GridCard
-              type = {props.type}
-              title={manga.mangaTitle}
-              image={manga.mangaImage}
-              mangaId={manga.mangaId}
-            />
-          </React.Fragment>
+          <>
+            {!Loading ? (
+              <React.Fragment key={index}>
+                <GridCard
+                  type={props.type}
+                  title={manga.mangaTitle}
+                  image={manga.mangaImage}
+                  mangaId={manga.mangaId}
+                />
+              </React.Fragment>
+            ) : (
+              <div>chargement ...</div>
+            )}
+          </>
         );
       })}
     </div>

@@ -39,6 +39,8 @@ const Watchlist = () => {
         <Add />
         {/* <Header /> */}
         {/* <Readlist /> */}
+        <h1 className="heading">Liste de lecture</h1>
+
         <MyFavorite type="readlist" />
         <Readed />
 

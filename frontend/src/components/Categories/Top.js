@@ -5,7 +5,6 @@ function Top({ topManga }) {
     <div>
       <aside>
         <div className="container">
-          <h3>Cars Manga</h3>
           {topManga.map((manga) => (
             <div key={manga.mal_id} className="top-card">
               <div className="top-card">

@@ -28,9 +28,8 @@ export const SingleComment = (props) => {
       content: commentValue,
     };
 
-    axios.post("/api/manga/save-comment", variables)
-    .then((response) => {
-        console.log(response.data);
+    axios.post("/api/manga/save-comment", variables).then((response) => {
+      console.log(response.data);
       if (response.data.success) {
         setCommentValue("");
         setOpenReply(!openReply);
@@ -46,7 +45,7 @@ export const SingleComment = (props) => {
       <>
         <div className="top">
           <div className="author">
-            <img src={"." + props.comment.writer.picture} alt="writer pics" />
+            <img src={props.comment.writer.picture} alt="writer pics" />
           </div>
 
           <div className="remove-zone">
@@ -62,8 +61,10 @@ export const SingleComment = (props) => {
         </div>
 
         <blockquote className="original">{props.comment.content}</blockquote>
-        <LikeDislikes commentId = {props.comment._id} userId ={user._id} />
-        <span onClick={handleOpenReply}> Répondre </span>
+        <div className="comment-right-part">
+          <LikeDislikes commentId={props.comment._id} userId={user._id} />
+          <span onClick={handleOpenReply}> Répondre </span>
+        </div>
       </>
 
       {openReply && (

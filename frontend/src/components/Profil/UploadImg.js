@@ -5,8 +5,10 @@ import { uploadPicture } from "../../actions/user.actions";
 
 export const UploadImg = () => {
   const [file, setFile] = useState();
+
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userReducer);
+
 
   const handlePicture = (e) => {
     e.preventDefault();

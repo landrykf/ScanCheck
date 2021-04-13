@@ -26,8 +26,8 @@ export const LikeDislikes = (props) => {
         console.log("failed to get likes");
       }
     });
-  }); 
-  
+  });
+
   const onLike = () => {
     if (likeAction === null) {
       axios.post("/api/manga/upLike", variable).then((response) => {
@@ -51,14 +51,12 @@ export const LikeDislikes = (props) => {
   };
 
   return (
-    <div>
-      <div onClick={onLike}>
-        {likeAction === "liked" ? (
-          <img src="../icons/heart-filled.svg" alt="heart" />
-        ) : (
-          <img src="../icons/heart.svg" alt="heart" />
-        )}
-      </div>
+    <div className="like-button" onClick={onLike}>
+      {likeAction === "liked" ? (
+        <img src="../icons/heart-filled.svg" alt="heart" />
+      ) : (
+        <img src="../icons/heart.svg" alt="heart" />
+      )}
       <span>{likes}</span>
     </div>
   );

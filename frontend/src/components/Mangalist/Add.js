@@ -8,9 +8,10 @@ export const Add = () => {
   const [query, setQuery] = useState("");
   const [mangas, setManga] = useState([]);
   // const usersData = useSelector((state) => state.usersReducer);
+  const [Loading, setLoading] = useState(true);
 
-  const [usersData, setUsersData] = useState([])
-  const [users , setUsers] = useState([]);
+  const [usersData, setUsersData] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const onChange = (event) => {
     event.preventDefault();
@@ -28,28 +29,28 @@ export const Add = () => {
           if (!data.errors) {
             // console.log(data.results);
             setManga(data.results);
+            setLoading(false);
           } else {
             setManga([]);
           }
         });
 
-        axios.get(`/api/users`).then(response => {
-          setUsersData(response.data)
-          // console.log(users);
-        })
+      axios.get(`/api/users`).then((response) => {
+        setUsersData(response.data);
+        // console.log(users);
+      });
 
-        const userRes = usersData.filter(user => {
-          return user.username.toLowerCase().includes(query.toLowerCase());
-        })
-        console.log(userRes);
-        setUsers(userRes)
-
-    } else { 
+      const userRes = usersData.filter((user) => {
+        return user.username.toLowerCase().includes(query.toLowerCase());
+      });
+      console.log(userRes);
+      setUsers(userRes);
+    } else {
       setManga([]);
-      setUsers([])
+      setUsers([]);
     }
   };
- 
+
   return (
     <div className="add-page">
       <div className="container">
@@ -64,29 +65,40 @@ export const Add = () => {
             />
           </div>
 
-          {mangas?.length > 0 && (
-            <ul className="results">
-              {mangas.map((manga) => (
-                <li key={manga.mal_id}>
-                  <ResultCard
-                    title={manga?.title}
-                    image={manga?.image_url}
-                    mangaId={manga.mal_id}
+          {users.length > 0 && (
+            <>
+              <h2 className="users">utilisateurs</h2>
+              <div className="user-search-result">
+                {users.map((user) => (
+                  <UserCard
+                    username={user.username}
+                    image={user.picture}
+                    userId={user._id}
                   />
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </>
           )}
-          {users.length > 0 &&(
-            <div className = "user-search-result">
-              {users.map(user => (
-                <UserCard
-                 username = {user.username}
-                 image = {user.picture}
-                 userId = {user._id}
-                 />
-              ))}
-            </div>
+
+          {mangas?.length > 0 && (
+            <>
+              {" "}
+              {!Loading ? (
+                <ul className="results">
+                  {mangas.map((manga) => (
+                    <li key={manga.mal_id}>
+                      <ResultCard
+                        title={manga?.title}
+                        image={manga?.image_url}
+                        mangaId={manga.mal_id}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div>chargement ...</div>
+              )}
+            </>
           )}
         </div>
 

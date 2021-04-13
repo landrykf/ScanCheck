@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { Favorite } from "./favorite/Favorite";
 
 export const ResultCard = (props) => {
-  const usersData = useSelector((state) => state.usersReducer);
+  const userData = useSelector((state) => state.userReducer);
 
-  console.log(props);
+  console.log(userData);
   if (props.character) {
     return <div></div>;
   } else {
@@ -13,7 +13,7 @@ export const ResultCard = (props) => {
       <div class="result-card">
         <div className="poster-wrapper">
         <Favorite
-              userFrom={usersData._id}
+              userFrom={userData._id}
               mangaId={props.mangaId}
               mangaTitle={props.title}
               mangaImage={props.image}

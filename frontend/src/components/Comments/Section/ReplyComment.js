@@ -8,7 +8,7 @@ export const ReplyComment = (props) => {
   const user = useSelector((state) => state.userReducer);
 
   const [childCommentNumber, setChildCommentNumber] = useState(0);
-  const [openReplyComment, setOpenReplyComment] = useState(true);
+  const [openReplyComment, setOpenReplyComment] = useState(false);
 
   useEffect(() => {
     let commentNumber = 0;
@@ -27,7 +27,7 @@ export const ReplyComment = (props) => {
   return (
     <div className="response-container">
       {childCommentNumber > 0 && (
-        <p onClick={handleChange}>Voir {childCommentNumber} réponse(s)</p>
+        <h5 className="reply" onClick={handleChange}>Voir {childCommentNumber} réponse(s)</h5>
       )}
       {openReplyComment &&
         props.commentList.map(
@@ -36,7 +36,7 @@ export const ReplyComment = (props) => {
               <div className="response-to-comment">
                 <div className="top">
                   <div className="author">
-                    <img src={"." + comment.writer.picture} alt="writer pics" />
+                    <img src={comment.writer.picture} alt="writer pics" />
                   </div>
 
                   <div className="remove-zone">
@@ -45,11 +45,10 @@ export const ReplyComment = (props) => {
                   <div className="holder">
                     <div className="author-label">
                       <h3>{comment.writer.username}</h3>
-                      <p>{comment.createdAt}</p>
+                      <h5>{comment.createdAt}</h5>
                     </div>
                   </div>
                 </div>
-
                 <p>{comment.content}</p>
                 <LikeDislikes commentId={comment._id} userId={comment.writer._id} />
               </div>

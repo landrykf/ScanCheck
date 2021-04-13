@@ -67,10 +67,11 @@ export const Favorite = (props) => {
 
   return (
     <div className="fav-button">
+      <h3> nombre d'ajout: {FavoriteNumber}</h3>
+
       <button onClick={onClickFavorite}>
         {!Favorited ? "Ajouter aux Favoris" : "Supprimer des Favoris"}
       </button>
-      <h5> nombre de fav {FavoriteNumber}</h5>
     </div>
   );
 };

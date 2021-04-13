@@ -20,14 +20,15 @@ function Navbar() {
 
   return (
     <div className="nav-container">
-        <div className="logo">
+      <div className="logo">
+        <div id="logo">
           <NavLink to="/" exact activeClassName="active-icon-nav">
             <img src="../img/logo.png" alt="logo" width="100" />
-            <span>Scancheck</span>
+            <h2>Scancheck</h2>
           </NavLink>
+        </div>
 
         {/* <Add/> */}
-
 
         <div className="icons">
           <div className="icons-bis">
@@ -54,7 +55,6 @@ function Navbar() {
                 <FontAwesomeIcon icon={"user-cog"} /> watchlist
               </span>
             </NavLink>
-            
 
             <h5>{" " + userData?.username}</h5>
 
@@ -67,8 +67,7 @@ function Navbar() {
             </ul>
           </div>
         </div>
-
-    </div>
+      </div>
     </div>
   );
 }

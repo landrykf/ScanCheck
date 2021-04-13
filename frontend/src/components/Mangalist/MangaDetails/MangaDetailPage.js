@@ -33,7 +33,7 @@ export const MangaDetailPage = (props) => {
 
   useEffect(() => {
     axios.post("/api/manga/get-comments", mangaVariable).then((response) => {
-      console.log(response);
+      // console.log(response);
       if (response.data.success) {
         // console.log("response.data.comments", response.data.comments);
         setCommentList(response.data.comments);
@@ -63,11 +63,11 @@ export const MangaDetailPage = (props) => {
 
   return (
     <div>
+      <Navbar />
       <div className="detail-container">
         <MainImage image={Manga?.image_url} title={Manga?.title} />
         {!Loading ? (
           <div>
-            <Navbar />
             <Favorite
               userFrom={userData._id}
               mangaId={mangaId}
@@ -109,12 +109,16 @@ export const MangaDetailPage = (props) => {
           <div>Chargement...</div>
         )}
 
-        <Comments
-          commentList={commentList}
-          mangaId={mangaId}
-          mangaTitle={Manga.title}
-          refreshFunction={updateComment}
-        />
+        {!Loading ? (
+          <Comments
+            commentList={commentList}
+            mangaId={mangaId}
+            mangaTitle={Manga.title}
+            refreshFunction={updateComment}
+          />
+        ) : (
+          <div>Chargement...</div>
+        )}
       </div>
     </div>
   );
