@@ -27,11 +27,6 @@ exports.router = (function () {
   apiRouter.route("/user/:id").put(userController.updateUser);
   apiRouter.route("/user/:id").delete(userController.deleteUser);
 
-  //Upload
-  //   apiRouter
-  //     .route("/user/upload", upload.single("file"))
-  //     .post(uploadController.uploadProfil);
-
   apiRouter.post(
     "/user/upload",
     upload.single("file"),
@@ -78,28 +73,8 @@ exports.router = (function () {
   apiRouter.route("/manga/removeFromReaded").post(read.removeFromReaded);
   apiRouter.route("/manga/getReadedManga").post(read.getReadedManga);
 
-  // apiRouter.route("/manga/like-manga/:id").patch(likeController.likeManga);
-  // apiRouter.route("/manga/unlike-manga/:id").patch(likeController.unlikeManga);
-
-  //comments
-  // apiRouter
-  //   .route("/manga/manga-comment/:id")
-  //   .patch(commentController.mangaComment);
-  // apiRouter
-  //   .route("/manga/edit-manga-comment/:id")
-  //   .patch(commentController.editMangaComment);
-  // apiRouter
-  //   .route("/manga/delete-manga-comment/:id")
-  //   .patch(commentController.deleteMangaComment);
-
   apiRouter.route("/manga/save-comment").post(comment.saveComment);
   apiRouter.route("/manga/get-comments").post(comment.getComments);
-  // apiRouter
-  //   .route("/manga/edit-manga-comment/:id")
-  //   .patch(commentController.editMangaComment);
-  // apiRouter
-  //   .route("/manga/delete-manga-comment/:id")
-  //   .patch(commentController.deleteMangaComment);
 
   return apiRouter;
 })();

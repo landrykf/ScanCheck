@@ -11,7 +11,6 @@ export const UNFOLLOW_USER = "UNFOLLOW_USER";
 
 export const getUser = (uid) => {
   const token = localStorage.getItem("token");
-  // console.log(token);
 
   return async (dispatch) => {
     await axios({
@@ -66,8 +65,7 @@ export const updateInfo = (uid, username, email) => {
         email,
       },
     }).then((res) => {
-      // console.log(username)
-      // console.log(res);
+
       dispatch({ type: UPDATE_INFO, payload:  {username, email}  });
     }).catch((err) => console.log(err))
   };

@@ -22,12 +22,41 @@
 
 .nav-tabs {
     display: flex;
-
+    margin: 0px auto;
+    width: 52%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
     li{
         margin-right: 5%;
         margin-left: 5%;
         list-style: none;
         cursor: pointer;
+
+        &:before {
+            transition: 0.15s ease-in-out;
+            transform: scale(0);
+            transform-origin: center;
+            z-index: -10;
+            content: "";
+            height: 20px;
+            width: 15px;
+            position: absolute;
+            background: orange;
+            border-radius: 50px;
+          }
+  
+          &:hover {
+            // transform: scale(1.02);
+            // color: orange;
+          }
+          &:hover::before {
+            transform: scale(1);
+            @media screen and(max-width: 590px) {
+            //   //   background: $color-1;
+            //   height: 34px;
+            //   width: 34px;
+            }
+          }
     }
 }
 

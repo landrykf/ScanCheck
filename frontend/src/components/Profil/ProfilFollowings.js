@@ -6,8 +6,6 @@ export const ProfilFollowings = (props) => {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
 
-    
-
   return (
     <div className="profil-body-followings">
       <h3> Abonnements : {userData?.following?.length}</h3>
@@ -17,15 +15,16 @@ export const ProfilFollowings = (props) => {
           for (let i = 0; i < userData.following.length; i++) {
             if (user._id === userData.following[i]) {
               return (
-                <a href={`/user/${user._id}`}>
-                  <li key={user._id}>
+                <li key={user._id}>
+                  <a href={`/user/${user._id}`}>
+                    {console.log(user.picture)}
                     <img src={user.picture} alt="user-pic" />
                     <h4> {user.username}</h4>
-                    <div className="follow-handler">
-                      <FollowHander idToFollow={user._id} type={"suggestion"} />
-                    </div>
-                  </li>
-                </a>
+                  </a>
+                  <div className="follow-handler">
+                    <FollowHander idToFollow={user._id} type={"suggestion"} />
+                  </div>
+                </li>
               );
             }
           }

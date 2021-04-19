@@ -19,6 +19,7 @@ import axios from "axios";
 SwiperCore.use([Virtual, Navigation]);
 
 export const MangaDetailPage = (props) => {
+  // console.log(props);
   const [Manga, setManga] = useState([]);
   const [crews, setCrews] = useState([]);
 
