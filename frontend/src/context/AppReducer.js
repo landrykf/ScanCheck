@@ -1,22 +1,18 @@
 export default (state, action) => {
   switch (action.type) {
     case "ADD_MANGA_TO_READLIST":
-      //   console.log(state);
       return {
         ...state,
         readlist: [action.payload, ...state.readlist],
       };
 
       case "SHOW_MANGA_DETAIL":
-        console.log(action.payload)
         return{
           ...state,
-          // showDetail : [action.payload, ...state.showDetail]
           showDetail : action.payload,
         }
 
     case "REMOVE_MOVIE_FROM_WATCHLIST":
-      // console.log(action);
       return {
         ...state,
         readlist: state.readlist.filter(
@@ -25,7 +21,6 @@ export default (state, action) => {
       };
 
     case "ADD_MANGA_TO_READED":
-      console.log(action.payload);
       return {
         ...state,
         readlist: state.readlist.filter(

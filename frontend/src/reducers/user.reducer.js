@@ -11,7 +11,6 @@ import {
 const initialState = {};
 
 export default function userReducer(state = initialState, action) {
-  // console.log();
   switch (action.type) {
     case GET_USER:
       return action.payload;
@@ -52,7 +51,6 @@ export default function userReducer(state = initialState, action) {
         ...state,
         following: state.following.filter(
           (id) => id !== action.payload.idToUnfollow,
-          console.log(state.following)
         ),
       };
 

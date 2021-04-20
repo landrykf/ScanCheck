@@ -17,7 +17,6 @@ export const FollowHander = ({ idToFollow, type }) => {
   const handleUnfollow = () => {
       dispatch(unFollowUser(userData._id, idToFollow));
       SetIsFollowed(false)
-      console.log(isFollowed);
   };
 
   useEffect(() => {

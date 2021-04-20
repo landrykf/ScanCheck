@@ -12,7 +12,6 @@ function UpdateProfil() {
   const [updateForm, setUpdateForm] = useState(true);
 
   const userData = useSelector((state) => state.userReducer);
-  console.log(userData);
   const dispatch = useDispatch();
 
   const handleUpdate = (event) => {

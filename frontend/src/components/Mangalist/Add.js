@@ -8,15 +8,13 @@ export const Add = () => {
   const [query, setQuery] = useState("");
   const [mangas, setManga] = useState([]);
   // const usersData = useSelector((state) => state.usersReducer);
-  const [Loading, setLoading] = useState(true);
+  const [Loading, setLoading] = useState(false);
 
   const [usersData, setUsersData] = useState([]);
   const [users, setUsers] = useState([]);
 
   const onChange = (event) => {
     event.preventDefault();
-
-    console.log(event.target.value);
 
     setQuery(event.target.value);
 
@@ -27,9 +25,7 @@ export const Add = () => {
         .then((res) => res.json())
         .then((data) => {
           if (!data.errors) {
-            // console.log(data.results);
             setManga(data.results);
-            setLoading(false);
           } else {
             setManga([]);
           }
@@ -37,14 +33,15 @@ export const Add = () => {
 
       axios.get(`/api/users`).then((response) => {
         setUsersData(response.data);
-        // console.log(users);
       });
 
       const userRes = usersData.filter((user) => {
         return user.username.toLowerCase().includes(query.toLowerCase());
       });
-      console.log(userRes);
       setUsers(userRes);
+      setTimeout(() => {
+        setLoading(true);
+      }, 1000);
     } else {
       setManga([]);
       setUsers([]);
@@ -67,23 +64,30 @@ export const Add = () => {
 
           {users.length > 0 && (
             <>
-              <h2 className="users">utilisateurs</h2>
-              <div className="user-search-result">
-                {users.map((user) => (
-                  <UserCard
-                    username={user.username}
-                    image={user.picture}
-                    userId={user._id}
-                  />
-                ))}
-              </div>
+              {Loading ? (
+                <div>
+                  {" "}
+                  <h2 className="users">utilisateurs</h2>
+                  <div className="user-search-result">
+                    {users.map((user) => (
+                      <UserCard
+                        username={user.username}
+                        image={user.picture}
+                        userId={user._id}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div>chargement</div>
+              )}
             </>
           )}
 
           {mangas?.length > 0 && (
             <>
               {" "}
-              {!Loading ? (
+              {Loading ? (
                 <ul className="results">
                   {mangas.map((manga) => (
                     <li key={manga.mal_id}>

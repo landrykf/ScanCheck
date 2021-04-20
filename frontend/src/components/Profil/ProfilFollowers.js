@@ -14,17 +14,16 @@ export const ProfilFollowers = () => {
           for (let i = 0; i < userData.followers.length; i++) {
             if (user._id === userData.followers[i]) {
               return (
-                <a href={`/user/${user._id}`}>
-
+                
                 <li key={user._id}>
-                  {console.log(user.picture)}
+                  <a href={`/user/${user._id}`}>
                   <img src={user.picture} alt="user-pic" />
                   <h4> {user.username}</h4>
+                </a>
                   <div className="follow-handler">
                     <FollowHander idToFollow={user._id} type={'suggestion'}/>
                   </div>
                 </li>
-                </a>
               );
             }
           }

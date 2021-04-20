@@ -14,7 +14,6 @@ export const ProfilHeader = (props) => {
   const [followingsModal, setFollowingsModal] = useState(props.followings);
   const [bodyModal, setBodyModal] = useState(props.body);
 
-  console.log(props);
   let handleModal = (event) => {
     if (event.target.id === "followings") {
       setFollowersModal(false);

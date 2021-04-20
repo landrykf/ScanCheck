@@ -12,7 +12,6 @@ export const LandingPage = () => {
         fetch(`https://api.jikan.moe/v3/top/manga/1/bypopularity`)
             .then(response => response.json())
             .then(response => {
-                // console.log(response);
                 setMangas(response.top)
             })
         
@@ -25,7 +24,6 @@ export const LandingPage = () => {
 
             {/* grid card */}
             <div>
-                {console.log(Mangas)}
                 {Mangas?.map((manga, index) => {
                     return(
 

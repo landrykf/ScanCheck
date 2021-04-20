@@ -17,7 +17,6 @@ export const ProfilFollowings = (props) => {
               return (
                 <li key={user._id}>
                   <a href={`/user/${user._id}`}>
-                    {console.log(user.picture)}
                     <img src={user.picture} alt="user-pic" />
                     <h4> {user.username}</h4>
                   </a>

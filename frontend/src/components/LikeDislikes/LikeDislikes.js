@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 export const LikeDislikes = (props) => {
   const [likes, setLikes] = useState(0);
   const [likeAction, setLikeAction] = useState(null);
-  console.log(props);
 
   const variable = {
     commentId: props.commentId,

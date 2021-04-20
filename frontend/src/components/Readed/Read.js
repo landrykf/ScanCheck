@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import {useCallback} from 'react'
+import { useCallback } from "react";
 
 export const Read = (props) => {
   const [read, setRead] = useState(null);
@@ -9,19 +9,14 @@ export const Read = (props) => {
 
   const userData = useSelector((state) => state.userReducer);
 
-  // console.log(props);
-
   const variables = {
     mangaId: props.mangaId,
     userId: userData._id,
   };
 
-
-
   const onRead = () => {
     if (read === null) {
       axios.post("/api/manga/addToRead", variables).then((response) => {
-        console.log(response);
         if (response.data.success) {
           setReadNumber(readNumber + 1);
           setRead("readed");
@@ -32,7 +27,6 @@ export const Read = (props) => {
     } else {
       axios.post("/api/manga/removeFromReaded", variables).then((response) => {
         if (response.data.success) {
-          // console.log(response);
           setReadNumber(readNumber - 1);
           setRead(null);
         } else {
@@ -40,19 +34,15 @@ export const Read = (props) => {
         }
       });
     }
-    // console.log(read);
   };
 
   useEffect(() => {
     async function loadReaded() {
-
       axios.post("/api/manga/getreads", variables).then((response) => {
         if (response.data.success) {
           setReadNumber(response.data.reads.length);
           response.data.reads.map((read) => {
-
             if (read.userId === userData._id) {
-              // console.log(read);
               setRead("readed");
             }
           });
@@ -61,11 +51,8 @@ export const Read = (props) => {
         }
       });
     }
-    loadReaded()
-  },[]);
-
-
-
+    loadReaded();
+  }, []);
 
   return (
     <div>
@@ -80,7 +67,6 @@ export const Read = (props) => {
           </button>
         )}
       </div>
-      {/* <span>{readNumber}</span> */}
     </div>
   );
 };

@@ -15,7 +15,6 @@ const Log = (props) => {
             setRegisterModal(false);
             setLoginModal(true);
         }
-        console.log(event.target)
     }
 
     return(

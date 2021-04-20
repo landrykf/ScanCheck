@@ -57,6 +57,8 @@
 
       a{
         text-decoration: none;
+        display: flex;
+        align-items: center;
       }
       &::-webkit-scrollbar {
         width: 2px;
@@ -88,13 +90,15 @@
           text-align: left;
           min-width: 210px;
           color: black;
+          margin-left: 20px;
+
         }
         .follow-handler {
           text-align: left;
 
           button {
             cursor: pointer;
-            background: orange;
+            background:#FF5420;
             /* border-radius: 20px; */
             margin-right: 6px;
             width: 100px;
@@ -109,4 +113,32 @@
       }
     }
 //   }
+}
+
+button {
+  font-size: 12px;
+  color: #fff;
+  background: #aaa;
+  padding: 2px 10px 0;
+  float: right;
+  width: auto;
+  display: block;
+  text-align: center;
+  border-radius: 2px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+.fav-button{
+  h3{
+    font-size: 10px;
+    padding-left: 60px;
+    color: gray;
+  }
+}
+
+.poster-wrapper{
+  width: 150px;
 }

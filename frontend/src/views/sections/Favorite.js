@@ -19,7 +19,6 @@ export const Favorite = (props) => {
     mangaTitle: mangaTitle,
     mangaImage: mangaImage,
   };
-// console.log(variable);
   const onClickFavorite = () => {
     if (Favorited) {
       //Ajouté
@@ -35,7 +34,6 @@ export const Favorite = (props) => {
       //Pas encore ajouté
       axios.post("/api/user/addToFavorite", variable).then((response) => {
         if (response.data.success) {
-          //   console.log(response.data);
           setFavoriteNumber(FavoriteNumber + 1);
           setFavorited(!Favorited);
         } else {
@@ -51,18 +49,14 @@ export const Favorite = (props) => {
     axios.post("/api/user/favoriteNumber", variable).then((response) => {
       if (response.data.success) {
         setFavoriteNumber(response.data.suscribeNumber);
-        // console.log(response.data);
       } else {
         alert("failed to get favoriteNumber");
       }
     });
 
     axios.post("/api/user/favorited", variable).then((response) => {
-        console.log(variable);
       if (response.data.success) {
-        // console.log(response);
         setFavorited(!response.data.suscribed);
-        console.log(Favorited);
       } else {
         alert("Failed to get Favorite");
       }

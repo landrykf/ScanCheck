@@ -2,7 +2,6 @@ import React from "react";
 import { CardComments } from "../CreateManga/CardComments";
 
 function DetailCard({ manga }) {
-  console.log(manga);
 
   return (
     <div className="modal">

@@ -17,7 +17,6 @@ const RegisterForm = () => {
     let passwordError = document.querySelector(".password.error");
     let controlPasswordError = document.querySelector(".passwordControl.error");
     let terms = document.getElementById("terms");
-    console.log(terms.checked);
     let termsError = document.querySelector(".terms.error");
     controlPasswordError.innerHTML = "";
     termsError.innerHTML = "";
@@ -43,7 +42,6 @@ const RegisterForm = () => {
         },
       })
         .then((res) => {
-          console.log(res);
           setFormSubmit(true)
 
           // window.location = "/";

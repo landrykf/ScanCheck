@@ -9,7 +9,6 @@ function Detail() {
 
   return (
     <div>
-      {console.log(cross)}
         {cross &&
         <div>
             {showDetail ? (

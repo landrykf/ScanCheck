@@ -4,7 +4,6 @@ import { LikeDislikes } from "../../LikeDislikes/LikeDislikes";
 import { SingleComment } from "./SingleComment";
 
 export const ReplyComment = (props) => {
-  console.log(props);
   const user = useSelector((state) => state.userReducer);
 
   const [childCommentNumber, setChildCommentNumber] = useState(0);

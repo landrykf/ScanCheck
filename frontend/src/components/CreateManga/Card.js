@@ -29,7 +29,6 @@ export const Card = ({ manga }) => {
                 !isEmpty(usersData[0]) &&
                 usersData
                   .map((user) => {
-                    // console.log(manga.posterId);
                     if (user._id === manga.posterId) return user.picture;
                   })
                   .join("")
@@ -43,7 +42,6 @@ export const Card = ({ manga }) => {
                 {!isEmpty(usersData[0]) &&
                   usersData
                     .map((user) => {
-                    //   console.log(manga.posterId);
                       if (user._id === manga.posterId) return user.username;
                     })
                     .join("")}
@@ -55,7 +53,6 @@ export const Card = ({ manga }) => {
               )}
               <h3>{manga.title}</h3>
               <p>{manga.description}</p>
-              {/* <p>{console.log(manga.comments.length)}</p> */}
             </div>
             <div className="card-footer">
               <div className="comment-icon">

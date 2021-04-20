@@ -29,7 +29,6 @@ export const SingleComment = (props) => {
     };
 
     axios.post("/api/manga/save-comment", variables).then((response) => {
-      console.log(response.data);
       if (response.data.success) {
         setCommentValue("");
         setOpenReply(!openReply);
@@ -56,7 +55,6 @@ export const SingleComment = (props) => {
               <h3>{props.comment.writer.username}</h3>
               <p>{props.comment.createdAt}</p>
             </div>
-            {/* <div className="">{console.log(props)}</div> */}
           </div>
         </div>
 

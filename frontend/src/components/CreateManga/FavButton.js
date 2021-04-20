@@ -10,7 +10,6 @@ export const FavButton = ({ manga }) => {
   const uid = useContext(UidContext);
   const dispatch = useDispatch();
 
-//   console.log(uid);
 
   const fave = () => {
     dispatch(faveManga(manga._id, uid))

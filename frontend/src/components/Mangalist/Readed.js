@@ -19,7 +19,6 @@ export const Readed = () => {
         .then((response) => {
           if (response.data.success) {
             setReaded(response.data.readed);
-            // console.log(readed);
 
             setLoading(false);
           } else {
@@ -43,7 +42,6 @@ export const Readed = () => {
           <>
             {readed.map((manga) => (
               <ReadCard mangaId={manga.mangaId} />
-              // <div>{console.log(manga)}oui monsieur</div>
             ))}
           </>
         ) : (

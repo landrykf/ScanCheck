@@ -12,10 +12,11 @@
 
 
     button {
-        background: wheat;
+        background: gray;
         border-radius: 20px;
         margin-right: 6px;
         cursor: pointer;
+        float: none;
 
         &:hover {
           color: orange;

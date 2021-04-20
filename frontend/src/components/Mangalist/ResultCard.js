@@ -5,7 +5,6 @@ import { Favorite } from "./favorite/Favorite";
 export const ResultCard = (props) => {
   const userData = useSelector((state) => state.userReducer);
 
-  console.log(userData);
   if (props.character) {
     return <div></div>;
   } else {

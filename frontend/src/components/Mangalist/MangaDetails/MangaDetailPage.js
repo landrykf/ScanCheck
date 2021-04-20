@@ -19,7 +19,6 @@ import axios from "axios";
 SwiperCore.use([Virtual, Navigation]);
 
 export const MangaDetailPage = (props) => {
-  // console.log(props);
   const [Manga, setManga] = useState([]);
   const [crews, setCrews] = useState([]);
 
@@ -34,9 +33,7 @@ export const MangaDetailPage = (props) => {
 
   useEffect(() => {
     axios.post("/api/manga/get-comments", mangaVariable).then((response) => {
-      // console.log(response);
       if (response.data.success) {
-        // console.log("response.data.comments", response.data.comments);
         setCommentList(response.data.comments);
       } else {
         console.log("Failed to get comments Info");
@@ -59,7 +56,6 @@ export const MangaDetailPage = (props) => {
 
   const updateComment = (newComment) => {
     setCommentList(commentList.concat(newComment));
-    // console.log(commentList);
   };
 
   return (
@@ -77,7 +73,6 @@ export const MangaDetailPage = (props) => {
             />
 
             <div className="info">
-              {/* <h5>{Manga?.authors[0]?.name}</h5> */}
               <div>{Manga?.status}</div>
               {Manga?.synopsis}
             </div>

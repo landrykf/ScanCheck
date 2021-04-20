@@ -22,7 +22,6 @@ export const Comments = (props) => {
     };
 
     axios.post("/api/manga/save-comment", variables).then((response) => {
-      console.log(response.data);
       if (response.data.success) {
         setComment("");
         props.refreshFunction(response.data.result);

@@ -11,7 +11,6 @@ export const CardComments = ({manga}) => {
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const [text, SetText] = useState("");
-  console.log(manga);
 
   const handleComment = (e) => {
       e.preventDefault()
@@ -41,7 +40,6 @@ export const CardComments = ({manga}) => {
                   !isEmpty(usersData[0]) &&
                   usersData
                     .map((user) => {
-                      console.log(comment.commenterId);
                       if (user._id === comment.commenterId) return user.picture;
                     })
                     .join("")

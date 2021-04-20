@@ -28,7 +28,6 @@ module.exports = {
   addToFavorite: (req, res) => {
 
     const favorite = new FavoriteModel(req.body);
-    // console.log(req.body);
     favorite.save((err, doc) => {
       if (err) return res.json({ success: false, err });
       return res.status(200).json({ success: true });

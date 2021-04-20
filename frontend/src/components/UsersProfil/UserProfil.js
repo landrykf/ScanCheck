@@ -8,7 +8,6 @@ import { ProfilFollowings } from "../Profil/ProfilFollowings";
 import { UserFavorite } from "./UserFavorite";
 
 export const UserProfil = (props) => {
-  console.log(props);
   const usersData = useSelector((state) => state.usersReducer);
 
   const [followersModal, setFollowersModal] = useState(props.followers);
@@ -66,7 +65,7 @@ export const UserProfil = (props) => {
                   return (
                     <a href={`/user/${user._id}`}>
                       <li key={user._id}>
-                        <img src={"." + user.picture} alt="user-pic" />
+                        <img src={user.picture} alt="user-pic" />
                         <h4> {user.username}</h4>
                         <div className="follow-handler"></div>
                       </li>
@@ -89,7 +88,7 @@ export const UserProfil = (props) => {
                   return (
                     <a href={`/user/${user._id}`}>
                       <li key={user._id}>
-                        <img src={"." + user.picture} alt="user-pic" />
+                        <img src={user.picture} alt="user-pic" />
                         <h4> {user.username}</h4>
                         <div className="follow-handler"></div>
                       </li>

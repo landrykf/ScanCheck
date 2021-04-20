@@ -17,7 +17,6 @@ export const UserFavorite = (props) => {
            return axios.post('/api/user/getFavoritedManga', variables)
             .then(response => {
                 if(response.data.success){
-                    console.log(response.data);
                     setFavoritedManga(response.data.favorites)
                     setLoading(false)
                 }else {

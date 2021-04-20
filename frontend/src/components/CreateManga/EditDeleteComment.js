@@ -31,7 +31,6 @@ export const EditDeleteComment = ({ comment, mangaId }) => {
     checkAuthor();
   }, [uid, comment.commenterId]);
 
-  console.log(uid);
 
   return (
     <div className="edit-comment">

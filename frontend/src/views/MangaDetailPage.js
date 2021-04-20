@@ -5,12 +5,10 @@ import { GridCard } from "./sections/GridCard";
 import { MainImage } from "./sections/MainImage";
 
 export const MangaDetailPage = (props) => {
-  // console.log(props);
   const [Manga, setManga] = useState([]);
   const [crews, setCrews] = useState([]);
   const mangaId = props.match.params.mangaId;
   const userData = useSelector((state) => state.userReducer);
-  //   console.log(userData);
 
   useEffect(() => {
     fetch(`https://api.jikan.moe/v3/manga/${mangaId}`)
@@ -38,7 +36,6 @@ export const MangaDetailPage = (props) => {
 
       {/* Manga Info */}
       <div>
-        {/* {console.log(Manga)} */}
         {/* <h5>{Manga?.authors[0]?.name}</h5> */}
         <div>{Manga?.status}</div>
         {Manga?.synopsis}
