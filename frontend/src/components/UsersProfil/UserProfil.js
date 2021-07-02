@@ -9,7 +9,6 @@ import { UserFavorite } from "./UserFavorite";
 
 export const UserProfil = (props) => {
   const usersData = useSelector((state) => state.usersReducer);
-
   const [followersModal, setFollowersModal] = useState(props.followers);
   const [followingsModal, setFollowingsModal] = useState(props.followings);
   const [bodyModal, setBodyModal] = useState(props.bodyModal);
@@ -41,6 +40,11 @@ export const UserProfil = (props) => {
 
           <img src={props.user.picture} alt="profil pic" />
         </div>
+        <div className="follow-check">
+          {props.type === "otherUserProfil" && (
+            <FollowHander idToFollow={props.user._id} type={"card"} />
+          )}
+        </div>
       </div>
       <ul className="nav-tabs">
         <li onClick={handleModal} className="tab-show" id="show">
@@ -53,7 +57,7 @@ export const UserProfil = (props) => {
           Abonnements
         </li>
       </ul>
-      {bodyModal && <UserFavorite userId = {props.user._id}/>}
+      {bodyModal && <UserFavorite userId={props.user._id} />}
       {followersModal && (
         <div className="profil-body-followings">
           <h5>Abonnés : {props.user?.followers?.length}</h5>

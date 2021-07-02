@@ -22,6 +22,7 @@ export const UsersDetailPage = (props) => {
                         followersModal={false}
                         followingsModal={false}
                         user={user}
+                        type= {"otherUserProfil"}
                       />
                     </>
                   )}

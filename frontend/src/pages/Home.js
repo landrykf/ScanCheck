@@ -24,10 +24,6 @@ const Home = () => {
     <div id="home">
       <Header />
       <header>
-        <div className="leftPart">
-          <h1>SCAN CHECK</h1>
-          <h1>le meilleur site de suivi de scan</h1>
-        </div>
         <Computer />
       </header>
       {!Loading ? (

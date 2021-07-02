@@ -51,7 +51,7 @@ function Navbar() {
             <br />
             <NavLink to="/watchlist" exact activeClassName="active-icon-nav">
               <span>
-                <FontAwesomeIcon icon={"user-cog"} /> watchlist
+                <FontAwesomeIcon icon={"user-cog"} /> liste de lecture
               </span>
             </NavLink>
 

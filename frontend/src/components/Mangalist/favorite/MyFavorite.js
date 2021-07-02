@@ -44,7 +44,10 @@ export const MyFavorite = (props) => {
                 />
               </React.Fragment>
             ) : (
-              <div>chargement ...</div>
+              <div className="loading-card">
+                <i class="fas fa-circle-notch"></i>
+                chargement ...
+              </div>
             )}
           </>
         );

@@ -1,3 +1,20 @@
+.cat-grid {
+  .cat-title {
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    h2 {
+      font-size: 24px;
+      color: #444;
+      margin-left: 10px;
+      font-family: ProximaNova;
+      line-height: 24px;
+    }
+  }
+}
 
-
-
+.swiper-button-next, .swiper-button-prev{
+    color: black;
+}

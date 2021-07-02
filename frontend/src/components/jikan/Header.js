@@ -10,12 +10,17 @@ function Header() {
   return (
     <div className="head">
       <div id="connexion-link">
+        <img src="../img/logo.png" alt="logo" />
+        <div className="leftPart">
+          <h1>SCAN CHECK</h1>
+        </div>
         <NavLink exact to="/profil">
-          <span>
+          <div className="connection-btn">
             Mon profil <FontAwesomeIcon icon={"sign-in-alt"} />
-          </span>
+          </div>
         </NavLink>
       </div>
+      <h2>Votre site de suivi de manga</h2>
     </div>
   );
 }

@@ -23,7 +23,6 @@ function Sidebar({ topManga }) {
           navigation
           pagination={{ clickable: true }}
         >
-            {console.log(topManga)}
           {topManga.map((manga, index) => (
             <SwiperSlide key={manga.mal_id} virtualIndex={index}>
                 <a href={`/manga/${manga.mal_id}`}>

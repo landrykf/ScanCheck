@@ -120,7 +120,8 @@ button {
   color: #fff;
   background: #aaa;
   padding: 2px 10px 0;
-  float: right;
+  // float: right;
+  margin-left: 20px;
   width: auto;
   display: block;
   text-align: center;
@@ -141,4 +142,9 @@ button {
 
 .poster-wrapper{
   width: 150px;
+}
+.follow-check{
+  position: absolute;
+  left: 336px;
+  cursor: pointer;
 }

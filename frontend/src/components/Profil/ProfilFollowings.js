@@ -8,7 +8,7 @@ export const ProfilFollowings = (props) => {
 
   return (
     <div className="profil-body-followings">
-      <h3> Abonnements : {userData?.following?.length}</h3>
+      <h5> Abonnements : {userData?.following?.length}</h5>
 
       <ul>
         {usersData.map((user) => {

@@ -106,7 +106,6 @@ export const Add = () => {
           )}
         </div>
 
-        <div></div>
       </div>
     </div>
   );
